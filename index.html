@@ -154,37 +154,20 @@
             <div class="project-content">
               <p class="project-kicker"><span class="lang-en">Current research · Under Review</span><span class="lang-zh">当前研究 · 审稿中</span></p>
               <h3>Continuous Multi-Joint Hand Angle Estimation via Single RGB Image and High-Density sEMG Fusion</h3>
-              <p class="project-affiliation">Dalian University of Technology / University of Tokyo</p>
-              <p class="project-period">2025.09 — <span class="lang-en">PRESENT</span><span class="lang-zh">至今</span></p>
-              <p class="project-summary"><span class="lang-en">Continuous 20-DoF hand joint-angle regression from egocentric vision and 128-channel high-density sEMG using joint-specific multimodal queries.</span><span class="lang-zh">融合第一视角视觉与 128 通道高密度表面肌电，通过面向关节的多模态查询连续回归 20 自由度手部关节角。</span></p>
-              <ul>
-                <li><span class="lang-en">Synchronized egocentric RGB, two 64-channel HD-sEMG arrays, and Vicon joint-angle ground truth.</span><span class="lang-zh">同步采集第一视角 RGB、两组 64 通道高密度肌电与 Vicon 关节角真值。</span></li>
-                <li><span class="lang-en">Designed DoF queries that retrieve joint-specific evidence from visual spatial tokens and EMG temporal tokens.</span><span class="lang-zh">设计自由度查询，从视觉空间令牌与肌电时间令牌中提取面向关节的证据。</span></li>
-                <li><span class="lang-en">Evaluated robustness under visual occlusion and analyzed the model's adaptive use of EMG evidence.</span><span class="lang-zh">评估视觉遮挡下的鲁棒性，并分析模型对肌电证据的自适应利用。</span></li>
-              </ul>
-              <div class="project-metrics" aria-label="Key research metrics">
-                <div><strong>20</strong><span><span class="lang-en">hand DoFs</span><span class="lang-zh">手部自由度</span></span></div>
-                <div><strong>128</strong><span><span class="lang-en">sEMG channels</span><span class="lang-zh">肌电通道</span></span></div>
-                <div><strong>0.88</strong><span><span class="lang-en">mean R²</span><span class="lang-zh">平均 R²</span></span></div>
-                <div><strong>2.8°</strong><span><span class="lang-en">mean MAE</span><span class="lang-zh">平均 MAE</span></span></div>
-              </div>
-              <div class="project-media" data-drag-scroll tabindex="0" aria-label="Research figures. Drag horizontally to browse.">
-                <figure class="media-card media-card-wide">
-                  <img src="assets/thumbnails/research/dof-query-framework.webp" alt="DoF-Query multimodal fusion architecture" loading="lazy" decoding="async" width="1200" height="509" draggable="false">
-                  <figcaption><span class="lang-en">DoF-Query fusion architecture</span><span class="lang-zh">DoF-Query 融合架构</span></figcaption>
+              <div class="research-feature">
+                <figure class="research-feature-figure">
+                  <img src="assets/thumbnails/research/dof-query-framework-paper.webp" alt="DoF-Query multimodal fusion architecture" loading="lazy" decoding="async" width="1200" height="509">
                 </figure>
-                <figure class="media-card">
-                  <img src="assets/thumbnails/research/experiment-setup.webp" alt="Vicon and HD-sEMG experiment setup" loading="lazy" decoding="async" width="688" height="1200" draggable="false">
-                  <figcaption><span class="lang-en">Synchronized acquisition setup</span><span class="lang-zh">同步数据采集系统</span></figcaption>
-                </figure>
-                <figure class="media-card">
-                  <img src="assets/thumbnails/research/hand-reconstruction.webp" alt="Ground truth and reconstructed hand poses" loading="lazy" decoding="async" width="831" height="1008" draggable="false">
-                  <figcaption><span class="lang-en">Hand-pose reconstruction</span><span class="lang-zh">手部姿态重建</span></figcaption>
-                </figure>
-                <figure class="media-card">
-                  <img src="assets/thumbnails/research/occlusion-robustness.webp" alt="Hand regression robustness under visual occlusion" loading="lazy" decoding="async" width="1060" height="1200" draggable="false">
-                  <figcaption><span class="lang-en">Occlusion robustness</span><span class="lang-zh">遮挡鲁棒性</span></figcaption>
-                </figure>
+                <div class="research-feature-copy">
+                  <div>
+                    <p class="research-copy-label"><span class="lang-en">Background</span><span class="lang-zh">研究背景</span></p>
+                    <p><span class="lang-en">Continuous and accurate estimation of hand joint angles is important for intuitive human-machine interaction, yet a single sensing modality may not remain reliable across changing operating conditions. Egocentric RGB images provide hand appearance and spatial configuration, whereas forearm HD-sEMG captures muscle activation even when visual observations are degraded.</span><span class="lang-zh">连续、准确的手部关节角估计是实现直观人机交互的重要基础，但单一传感模态难以在不断变化的工作条件下始终保持可靠。第一视角 RGB 图像提供手部外观与空间构型信息，前臂高密度表面肌电则能在视觉信息受损时继续反映肌肉激活。</span></p>
+                  </div>
+                  <div>
+                    <p class="research-copy-label"><span class="lang-en">Method</span><span class="lang-zh">研究方法</span></p>
+                    <p><span class="lang-en">We combine a Vision Transformer visual encoder, a Transformer-based EMG encoder, and a DoF-query fusion decoder to regress 20 hand joint angles from egocentric RGB images and 128-channel forearm HD-sEMG. An independent learnable query is assigned to each hand DoF, enabling joint-specific and context-adaptive integration of visual and EMG representations.</span><span class="lang-zh">我们结合视觉 Transformer 编码器、基于 Transformer 的肌电编码器与 DoF-query 融合解码器，从第一视角 RGB 图像和 128 通道前臂高密度表面肌电中回归 20 个手部关节角。每个手部自由度对应一个独立的可学习查询，从而实现面向关节、随情境自适应的视觉与肌电特征融合。</span></p>
+                  </div>
+                </div>
               </div>
             </div>
           </article>

@@ -171,6 +171,13 @@ body.view-life .hero-shade { background: linear-gradient(90deg, rgba(75,53,27,.9
 .project-content li { position: relative; margin: 9px 0; padding-left: 20px; color: #61655f; font-size: 14px; line-height: 1.55; }
 .project-content li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 1px; background: var(--moss); }
 .project-content > p:last-child:not(.project-affiliation):not(.project-summary) { max-width: 760px; color: #61655f; font-size: 14px; line-height: 1.6; }
+.research-feature { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, .85fr); gap: clamp(30px, 4vw, 64px); align-items: center; margin-top: 34px; }
+.research-feature-figure { margin: 0; min-width: 0; }
+.research-feature-figure img { width: 100%; height: auto; display: block; }
+.research-feature-copy { display: grid; gap: 30px; }
+.research-feature-copy > div { padding-top: 14px; border-top: 1px solid var(--line); }
+.research-copy-label { margin: 0 0 10px; color: var(--moss); font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.research-feature-copy > div > p:last-child { margin: 0; color: #4f554f; font-size: 13px; line-height: 1.68; }
 .project-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 860px; margin-top: 28px; border: 1px solid var(--line); }
 .project-metrics > div { min-height: 70px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: center; gap: 5px; border-right: 1px solid var(--line); }
 .project-metrics > div:last-child { border-right: 0; }
@@ -294,6 +301,8 @@ footer svg { width: 14px; height: 14px; }
   .publication-copy h3 { font-size: 24px; }
   .project-row { grid-template-columns: minmax(0, 1fr); padding: 36px 0 42px; }
   .project-content h3 { font-size: 27px; }
+  .research-feature { grid-template-columns: 1fr; gap: 28px; }
+  .research-feature-copy { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
   .project-metrics { grid-template-columns: repeat(2, 1fr); }
   .project-metrics > div:nth-child(2) { border-right: 0; }
   .project-metrics > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -337,4 +346,5 @@ footer svg { width: 14px; height: 14px; }
   .publication-row { grid-template-columns: 1fr; }
   .publication-row > svg { display: none; }
   .project-content h3 { font-size: 25px; }
+  .research-feature-copy { grid-template-columns: 1fr; }
 }
