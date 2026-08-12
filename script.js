@@ -4,8 +4,7 @@ const languageButtons = document.querySelectorAll('[data-language]');
 const viewButtons = document.querySelectorAll('[data-view]');
 const viewPanels = document.querySelectorAll('.view-panel');
 const themeColor = document.getElementById('theme-color');
-const savedLanguage = localStorage.getItem('cv-language');
-const preferredLanguage = savedLanguage || (navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en');
+const preferredLanguage = 'en';
 
 function setLanguage(language) {
   const nextLanguage = language === 'zh' ? 'zh' : 'en';
@@ -15,7 +14,6 @@ function setLanguage(language) {
   languageButtons.forEach((button) => {
     button.setAttribute('aria-pressed', String(button.dataset.language === nextLanguage));
   });
-  localStorage.setItem('cv-language', nextLanguage);
 }
 
 languageButtons.forEach((button) => {
@@ -93,14 +91,21 @@ document.querySelectorAll('[data-lightbox-src]').forEach((button) => {
     lightboxImage.src = button.dataset.lightboxSrc;
     lightboxImage.alt = button.querySelector('img')?.alt || '';
     lightboxCaption.textContent = button.dataset.lightboxCaption || '';
+    body.classList.add('lightbox-open');
     imageLightbox.showModal();
   });
 });
 
-imageLightbox?.querySelector('.lightbox-close')?.addEventListener('click', () => imageLightbox.close());
+const closeImageLightbox = () => {
+  imageLightbox?.close();
+  body.classList.remove('lightbox-open');
+};
+
+imageLightbox?.querySelector('.lightbox-close')?.addEventListener('click', closeImageLightbox);
 imageLightbox?.addEventListener('click', (event) => {
-  if (event.target === imageLightbox) imageLightbox.close();
+  if (event.target === imageLightbox) closeImageLightbox();
 });
+imageLightbox?.addEventListener('close', () => body.classList.remove('lightbox-open'));
 
 window.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) {
@@ -113,33 +118,12 @@ const finePointer = window.matchMedia('(pointer: fine)');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 if (cursorDot && finePointer.matches && !reducedMotion.matches) {
-  let targetX = -40;
-  let targetY = -40;
-  let currentX = -40;
-  let currentY = -40;
-  let cursorFrame;
-
-  const renderCursor = () => {
-    currentX += (targetX - currentX) * 0.2;
-    currentY += (targetY - currentY) * 0.2;
-    cursorDot.style.transform = `translate3d(${currentX - 7}px, ${currentY - 7}px, 0)`;
-    cursorFrame = window.requestAnimationFrame(renderCursor);
-  };
-
   window.addEventListener('pointermove', (event) => {
     if (event.pointerType && event.pointerType !== 'mouse') return;
-    targetX = event.clientX;
-    targetY = event.clientY;
     body.classList.add('cursor-ready');
     cursorDot.style.opacity = '1';
-    if (!cursorFrame) cursorFrame = window.requestAnimationFrame(renderCursor);
+    cursorDot.style.transform = `translate3d(${event.clientX - 5}px, ${event.clientY - 5}px, 0)`;
   }, { passive: true });
-
-  document.addEventListener('pointerover', (event) => {
-    cursorDot.classList.toggle('is-active', Boolean(event.target.closest('a, button, [data-drag-scroll]')));
-  });
-  document.addEventListener('pointerdown', () => cursorDot.classList.add('is-pressed'));
-  document.addEventListener('pointerup', () => cursorDot.classList.remove('is-pressed'));
   document.documentElement.addEventListener('mouseleave', () => { cursorDot.style.opacity = '0'; });
 }
 
