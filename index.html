@@ -16,15 +16,19 @@
   <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
   <header class="site-header" id="site-header">
     <a class="wordmark" href="#top" aria-label="Jesse Liu home">Jesse<span class="wordmark-dot">.</span>L</a>
-    <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#top"><span class="lang-en">Introduction</span><span class="lang-zh">简介</span></a>
-      <a href="#education"><span class="lang-en">Education</span><span class="lang-zh">教育</span></a>
-      <a href="#publications"><span class="lang-en">Publications</span><span class="lang-zh">论文</span></a>
-      <a href="#research"><span class="lang-en">Research</span><span class="lang-zh">科研</span></a>
-      <a href="#design"><span class="lang-en">Design</span><span class="lang-zh">设计</span></a>
-      <a href="#skills"><span class="lang-en">Skills</span><span class="lang-zh">技能</span></a>
+    <nav class="desktop-nav" id="primary-nav" aria-label="Primary navigation">
+      <a href="#top" data-section-link="top"><span class="lang-en">Introduction</span><span class="lang-zh">简介</span></a>
+      <a href="#education" data-section-link="education"><span class="lang-en">Education</span><span class="lang-zh">教育</span></a>
+      <a href="#publications" data-section-link="publications"><span class="lang-en">Publications</span><span class="lang-zh">论文</span></a>
+      <a href="#research" data-section-link="research"><span class="lang-en">Research</span><span class="lang-zh">科研</span></a>
+      <a href="#design" data-section-link="design"><span class="lang-en">Design</span><span class="lang-zh">设计</span></a>
+      <a href="#skills" data-section-link="skills"><span class="lang-en">Skills</span><span class="lang-zh">技能</span></a>
     </nav>
     <div class="header-actions">
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
+        <i class="menu-open-icon" data-lucide="menu" aria-hidden="true"></i>
+        <i class="menu-close-icon" data-lucide="x" aria-hidden="true"></i>
+      </button>
       <div class="language-switch" role="group" aria-label="Language">
         <button type="button" data-language="en" aria-pressed="true">EN</button>
         <button type="button" data-language="zh" aria-pressed="false">中</button>
@@ -44,15 +48,17 @@
       <div class="hero-content">
         <h1 id="hero-title" class="reveal"><span class="lang-en">Jiahang<br>Liu</span><span class="lang-zh">刘佳杭</span></h1>
         <div class="hero-introduction reveal">
-          <p class="lang-en">I am an M.S. candidate in Mechanical Engineering at Dalian University of Technology and a former Special Research Student at The University of Tokyo. My research combines egocentric vision and high-density sEMG for hand-motion understanding, human-intent perception, and dexterous teleoperation.</p>
-          <p class="lang-zh">我是大连理工大学机械工程硕士研究生，曾赴东京大学担任特别研究学生。我的研究融合第一视角视觉与高密度表面肌电，聚焦手部运动理解、人体意图感知与灵巧遥操作。</p>
+          <p class="hero-welcome"><span class="lang-en">WELCOME TO MY HOME PAGE!</span><span class="lang-zh">欢迎来到我的主页！</span></p>
+          <p class="lang-en">I am an M.S. candidate in Mechanical Engineering at Dalian University of Technology and a former Special Research Student at The University of Tokyo. My research explores multimodal fusion of vision and sEMG for hand-motion understanding, human-intent perception, and dexterous teleoperation.</p>
+          <p class="lang-zh">我是大连理工大学机械工程硕士研究生，曾赴东京大学担任特别研究学生。我的研究聚焦视觉与表面肌电的多模态融合，用于手部运动理解、人体意图感知与灵巧遥操作。</p>
+          <p class="hero-crossing"><span class="lang-en">I believe human-robot interaction is shaped by more than technology: aesthetics is also fundamental to how interaction is perceived and experienced. This belief connects my robotics research with my work across industrial design projects.</span><span class="lang-zh">我认为，人机交互不仅由技术塑造，美学同样影响交互被感知和体验的方式。因此，我也参与了多个工业设计项目，并将工程研究与产品美学贯穿于同一套实践之中。</span></p>
         </div>
         <div class="profile-tabs reveal" role="tablist" aria-label="Profile view">
           <button id="work-tab" type="button" role="tab" aria-selected="true" aria-controls="work-view" data-view="work">
-            <span>Work</span><small>01</small>
+            <span>Work</span>
           </button>
           <button id="life-tab" type="button" role="tab" aria-selected="false" aria-controls="life-view" data-view="life">
-            <span>Life</span><small>02</small>
+            <span>Life</span>
           </button>
         </div>
         <address class="hero-contact reveal">
@@ -72,7 +78,6 @@
     <section class="section section-light" id="education" aria-labelledby="education-title">
       <div class="section-shell">
         <div class="section-heading reveal">
-          <p class="section-index">01</p>
           <div>
             <p class="eyebrow"><span class="lang-en">Foundation</span><span class="lang-zh">学术基础</span></p>
             <h2 id="education-title"><span class="lang-en">Education</span><span class="lang-zh">教育经历</span></h2>
@@ -110,7 +115,6 @@
     <section class="section section-ink" id="publications" aria-labelledby="publications-title">
       <div class="section-shell">
         <div class="section-heading reveal">
-          <p class="section-index">02</p>
           <div>
             <p class="eyebrow"><span class="lang-en">Peer-reviewed work</span><span class="lang-zh">同行评议成果</span></p>
             <h2 id="publications-title"><span class="lang-en">Publications</span><span class="lang-zh">发表论文</span></h2>
@@ -118,7 +122,6 @@
         </div>
         <div class="publication-list">
           <a class="publication-row reveal" href="https://doi.org/10.1109/LRA.2025.3641037" target="_blank" rel="noreferrer">
-            <div class="publication-number">01</div>
             <div class="publication-copy">
               <p class="publication-status">IEEE Robotics and Automation Letters · 2026 · First author</p>
               <h3>Precise Hand-Arm Teleoperation of a Dexterous Robotic Manipulator via Markerless Vision and High-Density sEMG Fusion</h3>
@@ -127,7 +130,6 @@
             <i data-lucide="arrow-up-right" aria-hidden="true"></i>
           </a>
           <a class="publication-row reveal" href="https://doi.org/10.1109/TMECH.2026.3694602" target="_blank" rel="noreferrer">
-            <div class="publication-number">02</div>
             <div class="publication-copy">
               <p class="publication-status">IEEE/ASME Transactions on Mechatronics · 2026 · Accepted</p>
               <h3>VEMG-TeleGrasp: A Stiffness-Aware Teleoperation Framework for Dexterous Manipulation via Multimodal Fusion</h3>
@@ -142,22 +144,18 @@
     <section class="section projects-section section-light" id="research" aria-labelledby="experience-title">
       <div class="section-shell">
         <div class="section-heading reveal">
-          <p class="section-index">03</p>
           <div>
-            <p class="eyebrow"><span class="lang-en">Selected applied research</span><span class="lang-zh">代表性应用研究</span></p>
+            <p class="eyebrow"><span class="lang-en">Project Experience</span><span class="lang-zh">项目经历</span></p>
             <h2 id="experience-title"><span class="lang-en">Research</span><span class="lang-zh">科研经历</span></h2>
           </div>
         </div>
         <div class="project-list">
           <article class="project-row project-row-featured reveal">
-            <div class="project-index">
-              <span>01</span>
-              <p class="project-period">2024.09 — <span class="lang-en">present</span><span class="lang-zh">至今</span></p>
-            </div>
             <div class="project-content">
-              <p class="project-kicker"><span class="lang-en">Current research · Manuscript in preparation</span><span class="lang-zh">当前研究 · 论文撰写中</span></p>
-              <h3>DoF-Query Fusion</h3>
-              <p class="project-affiliation">Dalian University of Technology</p>
+              <p class="project-kicker"><span class="lang-en">Current research · Under Review</span><span class="lang-zh">当前研究 · 审稿中</span></p>
+              <h3>Continuous Multi-Joint Hand Angle Estimation via Single RGB Image and High-Density sEMG Fusion</h3>
+              <p class="project-affiliation">Dalian University of Technology / University of Tokyo</p>
+              <p class="project-period">2025.09 — <span class="lang-en">PRESENT</span><span class="lang-zh">至今</span></p>
               <p class="project-summary"><span class="lang-en">Continuous 20-DoF hand joint-angle regression from egocentric vision and 128-channel high-density sEMG using joint-specific multimodal queries.</span><span class="lang-zh">融合第一视角视觉与 128 通道高密度表面肌电，通过面向关节的多模态查询连续回归 20 自由度手部关节角。</span></p>
               <ul>
                 <li><span class="lang-en">Synchronized egocentric RGB, two 64-channel HD-sEMG arrays, and Vicon joint-angle ground truth.</span><span class="lang-zh">同步采集第一视角 RGB、两组 64 通道高密度肌电与 Vicon 关节角真值。</span></li>
@@ -173,28 +171,28 @@
               <div class="project-media" data-drag-scroll tabindex="0" aria-label="Research figures. Drag horizontally to browse.">
                 <figure class="media-card media-card-wide">
                   <img src="assets/dof-query-framework.png" alt="DoF-Query multimodal fusion architecture" loading="lazy" draggable="false">
-                  <figcaption><span>01</span><span class="lang-en">DoF-Query fusion architecture</span><span class="lang-zh">DoF-Query 融合架构</span></figcaption>
+                  <figcaption><span class="lang-en">DoF-Query fusion architecture</span><span class="lang-zh">DoF-Query 融合架构</span></figcaption>
                 </figure>
                 <figure class="media-card">
                   <img src="assets/experiment-setup.png" alt="Vicon and HD-sEMG experiment setup" loading="lazy" draggable="false">
-                  <figcaption><span>02</span><span class="lang-en">Synchronized acquisition setup</span><span class="lang-zh">同步数据采集系统</span></figcaption>
+                  <figcaption><span class="lang-en">Synchronized acquisition setup</span><span class="lang-zh">同步数据采集系统</span></figcaption>
                 </figure>
                 <figure class="media-card">
                   <img src="assets/hand-reconstruction.png" alt="Ground truth and reconstructed hand poses" loading="lazy" draggable="false">
-                  <figcaption><span>03</span><span class="lang-en">Hand-pose reconstruction</span><span class="lang-zh">手部姿态重建</span></figcaption>
+                  <figcaption><span class="lang-en">Hand-pose reconstruction</span><span class="lang-zh">手部姿态重建</span></figcaption>
                 </figure>
                 <figure class="media-card">
                   <img src="assets/occlusion-robustness.png" alt="Hand regression robustness under visual occlusion" loading="lazy" draggable="false">
-                  <figcaption><span>04</span><span class="lang-en">Occlusion robustness</span><span class="lang-zh">遮挡鲁棒性</span></figcaption>
+                  <figcaption><span class="lang-en">Occlusion robustness</span><span class="lang-zh">遮挡鲁棒性</span></figcaption>
                 </figure>
               </div>
             </div>
           </article>
           <article class="project-row reveal">
-            <div class="project-index"><span>02</span><p class="project-period">2024.09 — 2025.07</p></div>
             <div class="project-content">
-              <h3><span class="lang-en">Markerless Vision + HD-sEMG Dexterous Teleoperation</span><span class="lang-zh">无标记视觉与高密度肌电灵巧遥操作</span></h3>
+              <h3>Precise Hand–Arm Teleoperation System via Markerless Vision and High-Density sEMG Fusion</h3>
               <p class="project-affiliation">Dalian University of Technology</p>
+              <p class="project-period">2024.09 — 2025.07</p>
               <ul>
                 <li><span class="lang-en">Estimated global hand-arm pose from RGB-D and validated markerless tracking against Vicon ground truth.</span><span class="lang-zh">基于 RGB-D 估计全局手臂位姿，并使用 Vicon 真值验证无标记跟踪精度。</span></li>
                 <li><span class="lang-en">Fused visual keypoints and HD-sEMG for gesture recognition and finger-force regression.</span><span class="lang-zh">融合视觉关键点与高密度肌电，实现手势识别和手指力回归。</span></li>
@@ -203,10 +201,10 @@
             </div>
           </article>
           <article class="project-row reveal">
-            <div class="project-index"><span>03</span><p class="project-period">2023.10 — 2024.07</p></div>
             <div class="project-content">
-              <h3><span class="lang-en">HD-sEMG-driven Soft Rehabilitation Glove</span><span class="lang-zh">高密度肌电驱动软体康复手套</span></h3>
+              <h3>A Distributed High-Density sEMG-driven Soft Glove System for Stroke Rehabilitation</h3>
               <p class="project-affiliation"><span class="lang-en">Bachelor graduation thesis · Dalian University of Technology</span><span class="lang-zh">本科毕业设计 · 大连理工大学</span></p>
+              <p class="project-period">2023.10 — 2024.07</p>
               <ul>
                 <li><span class="lang-en">Developed a pneumatic glove supporting independent finger flexion and abduction.</span><span class="lang-zh">开发气动软体手套，实现手指独立屈曲与外展。</span></li>
                 <li><span class="lang-en">Designed an HD-sEMG sleeve and optimized electrodes through energy mapping and impedance analysis.</span><span class="lang-zh">设计高密度肌电采集袖套，并通过能量分布映射和阻抗分析优化电极布局。</span></li>
@@ -220,21 +218,17 @@
 
     <section class="section design-section section-ink" id="design" aria-labelledby="design-title">
       <div class="section-shell">
-        <div class="section-heading reveal">
-          <p class="section-index">04</p>
+        <div class="section-heading design-heading reveal">
           <div>
             <p class="eyebrow"><span class="lang-en">Form, structure, and product thinking</span><span class="lang-zh">形态、结构与产品思维</span></p>
             <h2 id="design-title"><span class="lang-en">Design</span><span class="lang-zh">设计作品</span></h2>
           </div>
-        </div>
-        <div class="design-statement reveal">
-          <blockquote><span class="lang-en">Aesthetics is an integral part of interaction.</span><span class="lang-zh">美学是交互的重要组成部分。</span></blockquote>
-          <div>
-            <p class="lang-en">I serve as Design Director at Venture Electronics (VE), working across product form, enclosure architecture, and visual communication for personal-audio hardware. At Dalian University of Technology, I also design research hardware centered on a wearable high-density sEMG acquisition system.</p>
-            <p class="lang-zh">我担任 Venture Electronics（VE）设计总监，负责个人音频硬件的产品形态、外壳结构与视觉表达。在大连理工大学，我也参与科研硬件设计，重点围绕可穿戴高密度表面肌电采集系统展开。</p>
+          <div class="design-overview">
+            <blockquote><span class="lang-en">Aesthetics is an integral part of interaction.</span><span class="lang-zh">美学，决定交互如何被感知。</span></blockquote>
+            <p class="lang-en">As Design Director at Venture Electronics, I work across product form, enclosure architecture, and visual communication for personal-audio hardware. I also design research hardware at Dalian University of Technology, centered on high-density sEMG acquisition systems.</p>
+            <p class="lang-zh">作为 Venture Electronics 设计总监，我参与个人音频硬件的产品形态、外壳结构与视觉表达。同时，我也在大连理工大学参与高密度表面肌电采集系统相关的科研硬件设计。</p>
           </div>
         </div>
-
         <section class="design-chapter" aria-labelledby="ve-design-title">
           <header class="design-chapter-header reveal">
             <div>
@@ -248,7 +242,7 @@
           </header>
           <div class="design-gallery">
             <article class="design-work reveal">
-              <button class="design-media design-image-button design-media-portrait" type="button" data-lightbox-src="assets/design/venture-electronics/earbud-form-study.jpg" data-lightbox-caption="Low Poly" aria-label="View Low Poly in high resolution">
+              <button class="design-media design-image-button design-media-low-poly" type="button" data-lightbox-src="assets/design/venture-electronics/earbud-form-study.jpg" data-lightbox-caption="Low Poly" aria-label="View Low Poly in high resolution">
                 <img src="assets/design/venture-electronics/earbud-form-study.jpg" alt="Low Poly earbud design" loading="lazy">
               </button>
               <div class="design-work-meta"><h4>Low Poly</h4><p>Coming soon</p></div>
@@ -264,7 +258,7 @@
             </article>
             <article class="design-work reveal">
               <button class="design-media design-image-button design-media-wide" type="button" data-lightbox-src="assets/design/venture-electronics/portable-audio-interface.jpg" data-lightbox-caption="Portable Audio Interface" aria-label="View Portable Audio Interface in high resolution">
-                <img src="assets/design/venture-electronics/portable-audio-interface.jpg" alt="Portable audio interface enclosure concept" loading="lazy">
+                <img src="assets/design/venture-electronics/portable-audio-interface-4x3.jpg" alt="Portable audio interface enclosure concept" loading="lazy">
               </button>
               <div class="design-work-meta"><h4><span class="lang-en">Portable Audio Interface</span><span class="lang-zh">便携式音频接口</span></h4><p>Coming soon</p></div>
             </article>
@@ -281,19 +275,19 @@
           </header>
           <div class="design-gallery">
             <article class="design-work reveal">
-              <button class="design-media design-image-button design-media-wide" type="button" data-lightbox-src="assets/design/hdsemg-acquisition/wearable-system.jpg" data-lightbox-caption="Wearable System Concept" aria-label="View Wearable System Concept in high resolution">
+              <button class="design-media design-image-button design-media-fill design-media-wearable" type="button" data-lightbox-src="assets/design/hdsemg-acquisition/wearable-system.jpg" data-lightbox-caption="Wearable System Concept" aria-label="View Wearable System Concept in high resolution">
                 <img src="assets/design/hdsemg-acquisition/wearable-system.jpg" alt="Wearable high-density sEMG acquisition system concept" loading="lazy">
               </button>
               <div class="design-work-meta"><h4><span class="lang-en">Wearable System Concept</span><span class="lang-zh">可穿戴采集系统概念</span></h4></div>
             </article>
             <article class="design-work reveal">
-              <button class="design-media design-image-button design-media-wide" type="button" data-lightbox-src="assets/design/hdsemg-acquisition/wireless-acquisition-module.jpg" data-lightbox-caption="Wireless Acquisition Module" aria-label="View Wireless Acquisition Module in high resolution">
+              <button class="design-media design-image-button design-media-fill design-media-module" type="button" data-lightbox-src="assets/design/hdsemg-acquisition/wireless-acquisition-module.jpg" data-lightbox-caption="Wireless Acquisition Module" aria-label="View Wireless Acquisition Module in high resolution">
                 <img src="assets/design/hdsemg-acquisition/wireless-acquisition-module.jpg" alt="Wireless high-density sEMG acquisition module" loading="lazy">
               </button>
               <div class="design-work-meta"><h4><span class="lang-en">Wireless Acquisition Module</span><span class="lang-zh">无线采集模块</span></h4></div>
             </article>
             <article class="design-work reveal">
-              <button class="design-media design-image-button design-media-cinema" type="button" data-lightbox-src="assets/design/hdsemg-acquisition/portable-research-workstation.png" data-lightbox-caption="Portable Acquisition Workstation" aria-label="View Portable Acquisition Workstation in high resolution">
+              <button class="design-media design-image-button design-media-fill design-media-workstation" type="button" data-lightbox-src="assets/design/hdsemg-acquisition/portable-research-workstation.png" data-lightbox-caption="Portable Acquisition Workstation" aria-label="View Portable Acquisition Workstation in high resolution">
                 <img src="assets/design/hdsemg-acquisition/portable-research-workstation.png" alt="Portable high-density sEMG acquisition workstation" loading="lazy">
               </button>
               <div class="design-work-meta"><h4><span class="lang-en">Portable Acquisition Workstation</span><span class="lang-zh">便携式采集工作站</span></h4></div>
@@ -306,7 +300,6 @@
     <section class="section section-light" id="skills" aria-labelledby="skills-title">
       <div class="section-shell">
         <div class="section-heading reveal">
-          <p class="section-index">05</p>
           <div>
             <p class="eyebrow"><span class="lang-en">Toolbox & character</span><span class="lang-zh">工具与个性</span></p>
             <h2 id="skills-title"><span class="lang-en">Skills</span><span class="lang-zh">技能</span></h2>
@@ -316,7 +309,7 @@
           <div class="skill-block reveal">
             <i data-lucide="code-2" aria-hidden="true"></i>
             <h3><span class="lang-en">Programming</span><span class="lang-zh">编程</span></h3>
-            <p>Python · PyTorch · PyTorch Lightning · OpenCV · MATLAB · ROS2</p>
+            <p>Python · PyTorch · PyTorch Lightning · OpenCV · MuJoCo · MATLAB · ROS2</p>
           </div>
           <div class="skill-block reveal">
             <i data-lucide="pen-tool" aria-hidden="true"></i>
@@ -331,7 +324,10 @@
           <div class="skill-block reveal">
             <i data-lucide="circle-dot" aria-hidden="true"></i>
             <h3><span class="lang-en">Beyond the lab</span><span class="lang-zh">实验室之外</span></h3>
-            <p><span class="lang-en">Soccer · HiFi · Singing · Billiards · Coffee</span><span class="lang-zh">足球 · HiFi · 唱歌 · 台球 · 咖啡</span></p>
+            <a class="life-jump-link" href="#life" data-life-link>
+              <span><span class="lang-en">Click here</span><span class="lang-zh">点击这里</span></span>
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -351,14 +347,13 @@
       <section class="life-index" aria-label="Personal interests">
         <div class="life-index-heading">
           <p class="eyebrow"><span class="lang-en">Five directions</span><span class="lang-zh">五个方向</span></p>
-          <p class="life-counter">01 — 05</p>
         </div>
         <div class="life-list">
-          <article class="life-row reveal"><span>01</span><h3><span class="lang-en">Football</span><span class="lang-zh">足球</span></h3><i data-lucide="circle" aria-hidden="true"></i></article>
-          <article class="life-row reveal"><span>02</span><h3>HiFi</h3><i data-lucide="audio-waveform" aria-hidden="true"></i></article>
-          <article class="life-row reveal"><span>03</span><h3><span class="lang-en">Singing</span><span class="lang-zh">唱歌</span></h3><i data-lucide="mic-2" aria-hidden="true"></i></article>
-          <article class="life-row reveal"><span>04</span><h3><span class="lang-en">Billiards</span><span class="lang-zh">台球</span></h3><i data-lucide="circle-dot" aria-hidden="true"></i></article>
-          <article class="life-row reveal"><span>05</span><h3><span class="lang-en">Coffee</span><span class="lang-zh">咖啡</span></h3><i data-lucide="coffee" aria-hidden="true"></i></article>
+          <article class="life-row reveal"><h3><span class="lang-en">Football</span><span class="lang-zh">足球</span></h3><i data-lucide="circle" aria-hidden="true"></i></article>
+          <article class="life-row reveal"><h3>HiFi</h3><i data-lucide="audio-waveform" aria-hidden="true"></i></article>
+          <article class="life-row reveal"><h3><span class="lang-en">Singing</span><span class="lang-zh">唱歌</span></h3><i data-lucide="mic-2" aria-hidden="true"></i></article>
+          <article class="life-row reveal"><h3><span class="lang-en">Billiards</span><span class="lang-zh">台球</span></h3><i data-lucide="circle-dot" aria-hidden="true"></i></article>
+          <article class="life-row reveal"><h3><span class="lang-en">Coffee</span><span class="lang-zh">咖啡</span></h3><i data-lucide="coffee" aria-hidden="true"></i></article>
         </div>
       </section>
       <a class="life-back-top" href="#top" aria-label="Back to top">

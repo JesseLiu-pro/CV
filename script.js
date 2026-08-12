@@ -4,6 +4,9 @@ const languageButtons = document.querySelectorAll('[data-language]');
 const viewButtons = document.querySelectorAll('[data-view]');
 const viewPanels = document.querySelectorAll('.view-panel');
 const themeColor = document.getElementById('theme-color');
+const menuToggle = document.getElementById('menu-toggle');
+const primaryNav = document.getElementById('primary-nav');
+const sectionLinks = document.querySelectorAll('[data-section-link]');
 const preferredLanguage = 'en';
 
 function setLanguage(language) {
@@ -44,9 +47,27 @@ function setView(view) {
   document.querySelectorAll('.desktop-nav a').forEach((link) => {
     link.toggleAttribute('hidden', nextView === 'life');
   });
+  closeMenu();
   history.replaceState(null, '', nextView === 'life' ? '#life' : '#top');
   document.getElementById(nextView === 'life' ? 'life-view' : 'work-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+function closeMenu() {
+  header.classList.remove('menu-open');
+  menuToggle?.setAttribute('aria-expanded', 'false');
+  menuToggle?.setAttribute('aria-label', 'Open navigation menu');
+}
+
+menuToggle?.addEventListener('click', () => {
+  const isOpen = !header.classList.contains('menu-open');
+  header.classList.toggle('menu-open', isOpen);
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+});
+
+primaryNav?.addEventListener('click', (event) => {
+  if (event.target.closest('a')) closeMenu();
+});
 
 viewButtons.forEach((button, index) => {
   button.addEventListener('click', () => setView(button.dataset.view));
@@ -59,12 +80,37 @@ viewButtons.forEach((button, index) => {
   });
 });
 
+document.querySelectorAll('[data-life-link]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    setView('life');
+  });
+});
+
 function updateHeader() {
   header.classList.toggle('is-scrolled', window.scrollY > 40);
+
+  if (!body.classList.contains('view-work')) return;
+  const marker = window.scrollY + header.offsetHeight + Math.min(window.innerHeight * 0.28, 220);
+  let currentSection = 'top';
+  ['education', 'publications', 'research', 'design', 'skills'].forEach((sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section && section.offsetTop <= marker) currentSection = sectionId;
+  });
+  sectionLinks.forEach((link) => {
+    const active = link.dataset.sectionLink === currentSection;
+    link.classList.toggle('is-active', active);
+    if (active) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
 }
 
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) closeMenu();
+  updateHeader();
+}, { passive: true });
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -93,11 +139,13 @@ document.querySelectorAll('[data-lightbox-src]').forEach((button) => {
     lightboxCaption.textContent = button.dataset.lightboxCaption || '';
     body.classList.add('lightbox-open');
     imageLightbox.showModal();
+    if (cursorDot) imageLightbox.appendChild(cursorDot);
   });
 });
 
 const closeImageLightbox = () => {
   imageLightbox?.close();
+  if (cursorDot) body.appendChild(cursorDot);
   body.classList.remove('lightbox-open');
 };
 
@@ -105,7 +153,10 @@ imageLightbox?.querySelector('.lightbox-close')?.addEventListener('click', close
 imageLightbox?.addEventListener('click', (event) => {
   if (event.target === imageLightbox) closeImageLightbox();
 });
-imageLightbox?.addEventListener('close', () => body.classList.remove('lightbox-open'));
+imageLightbox?.addEventListener('close', () => {
+  if (cursorDot) body.appendChild(cursorDot);
+  body.classList.remove('lightbox-open');
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) {
@@ -122,8 +173,14 @@ if (cursorDot && finePointer.matches && !reducedMotion.matches) {
     if (event.pointerType && event.pointerType !== 'mouse') return;
     body.classList.add('cursor-ready');
     cursorDot.style.opacity = '1';
-    cursorDot.style.transform = `translate3d(${event.clientX - 5}px, ${event.clientY - 5}px, 0)`;
+    cursorDot.style.left = `${event.clientX}px`;
+    cursorDot.style.top = `${event.clientY}px`;
   }, { passive: true });
+  document.addEventListener('pointerover', (event) => {
+    cursorDot.classList.toggle('is-active', Boolean(event.target.closest('a, button, [data-drag-scroll]')));
+  });
+  document.addEventListener('pointerdown', () => cursorDot.classList.add('is-pressed'));
+  document.addEventListener('pointerup', () => cursorDot.classList.remove('is-pressed'));
   document.documentElement.addEventListener('mouseleave', () => { cursorDot.style.opacity = '0'; });
 }
 
