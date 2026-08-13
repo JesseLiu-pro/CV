@@ -159,34 +159,30 @@
                 <p class="project-period">2025.09 — <span class="lang-en">PRESENT</span><span class="lang-zh">至今</span></p>
               </div>
               <div class="research-feature">
-                <div class="research-feature-visuals">
-                  <figure class="research-feature-figure">
-                    <img src="assets/thumbnails/research/dof-query-framework-paper.webp" alt="DoF-Query multimodal fusion architecture" loading="lazy" decoding="async" width="1200" height="509">
-                  </figure>
-                  <div class="experiment-panels" aria-label="Experimental setup">
-                    <figure class="experiment-panel">
-                      <img src="assets/thumbnails/research/experiment-setup-a.webp" alt="Panel A: egocentric RGB and motion-capture experimental environment" loading="lazy" decoding="async" width="688" height="503">
-                    </figure>
-                    <figure class="experiment-panel experiment-panel-animated">
-                      <img src="assets/thumbnails/research/experiment-setup-b.webp" alt="Panel B: reflective markers and forearm high-density sEMG acquisition hardware" loading="lazy" decoding="async" width="688" height="697">
-                      <svg class="experiment-flow" viewBox="0 0 688 697" aria-hidden="true">
-                        <path class="flow-line flow-up flow-delay-1" pathLength="1" d="M205 449 L205 389" />
-                        <path class="flow-line flow-up flow-delay-2" pathLength="1" d="M480 385 L480 278" />
-                        <path class="flow-line flow-down flow-delay-1" pathLength="1" d="M287 553 L287 620" />
-                        <path class="flow-line flow-down flow-delay-2" pathLength="1" d="M366 552 L366 619" />
-                      </svg>
-                    </figure>
-                  </div>
+                <figure class="research-feature-figure research-ruled-block">
+                  <img src="assets/thumbnails/research/dof-query-framework-paper.webp" alt="DoF-Query multimodal fusion architecture" loading="lazy" decoding="async" width="1200" height="509">
+                </figure>
+                <div class="research-copy-block research-ruled-block">
+                  <p class="research-copy-label"><span class="lang-en">Introduction</span><span class="lang-zh">研究简介</span></p>
+                  <p><span class="lang-en">Continuous and accurate estimation of hand joint angles is important for intuitive human-machine interaction, yet a single sensing modality may not remain reliable across changing operating conditions. Egocentric RGB images provide hand appearance and spatial configuration, whereas forearm HD-sEMG captures muscle activation even when visual observations are degraded.</span><span class="lang-zh">连续、准确的手部关节角估计是实现直观人机交互的重要基础，但单一传感模态难以在不断变化的工作条件下始终保持可靠。第一视角 RGB 图像提供手部外观与空间构型信息，前臂高密度表面肌电则能在视觉信息受损时继续反映肌肉激活。</span></p>
                 </div>
-                <div class="research-feature-copy">
-                  <div>
-                    <p class="research-copy-label"><span class="lang-en">Background</span><span class="lang-zh">研究背景</span></p>
-                    <p><span class="lang-en">Continuous and accurate estimation of hand joint angles is important for intuitive human-machine interaction, yet a single sensing modality may not remain reliable across changing operating conditions. Egocentric RGB images provide hand appearance and spatial configuration, whereas forearm HD-sEMG captures muscle activation even when visual observations are degraded.</span><span class="lang-zh">连续、准确的手部关节角估计是实现直观人机交互的重要基础，但单一传感模态难以在不断变化的工作条件下始终保持可靠。第一视角 RGB 图像提供手部外观与空间构型信息，前臂高密度表面肌电则能在视觉信息受损时继续反映肌肉激活。</span></p>
-                  </div>
-                  <div>
-                    <p class="research-copy-label"><span class="lang-en">Method</span><span class="lang-zh">研究方法</span></p>
-                    <p><span class="lang-en">We combine a Vision Transformer visual encoder, a Transformer-based EMG encoder, and a DoF-query fusion decoder to regress 20 hand joint angles from egocentric RGB images and 128-channel forearm HD-sEMG. An independent learnable query is assigned to each hand DoF, enabling joint-specific and context-adaptive integration of visual and EMG representations.</span><span class="lang-zh">我们结合视觉 Transformer 编码器、基于 Transformer 的肌电编码器与 DoF-query 融合解码器，从第一视角 RGB 图像和 128 通道前臂高密度表面肌电中回归 20 个手部关节角。每个手部自由度对应一个独立的可学习查询，从而实现面向关节、随情境自适应的视觉与肌电特征融合。</span></p>
-                  </div>
+                <div class="experiment-panels research-ruled-block" aria-label="Experimental setup">
+                  <figure class="experiment-panel">
+                    <img src="assets/thumbnails/research/experiment-setup-a-clean.webp" alt="Egocentric RGB and motion-capture experimental environment" loading="lazy" decoding="async" width="688" height="503">
+                  </figure>
+                  <figure class="experiment-panel experiment-panel-animated">
+                    <img src="assets/thumbnails/research/experiment-setup-b-clean.webp" alt="Reflective markers and forearm high-density sEMG acquisition hardware" loading="lazy" decoding="async" width="688" height="697">
+                    <svg class="experiment-flow" viewBox="0 0 688 697" aria-hidden="true">
+                      <g class="arrow-bounce arrow-bounce-up arrow-delay-1"><path d="M205 449 L205 389 M194 403 L205 389 L216 403" /></g>
+                      <g class="arrow-bounce arrow-bounce-up arrow-delay-2"><path d="M480 385 L480 278 M469 292 L480 278 L491 292" /></g>
+                      <g class="arrow-bounce arrow-bounce-down arrow-delay-1"><path d="M287 553 L287 620 M276 606 L287 620 L298 606" /></g>
+                      <g class="arrow-bounce arrow-bounce-down arrow-delay-2"><path d="M366 552 L366 619 M355 605 L366 619 L377 605" /></g>
+                    </svg>
+                  </figure>
+                </div>
+                <div class="research-copy-block research-ruled-block">
+                  <p class="research-copy-label"><span class="lang-en">Method</span><span class="lang-zh">研究方法</span></p>
+                  <p><span class="lang-en">We combine a Vision Transformer visual encoder, a Transformer-based EMG encoder, and a DoF-query fusion decoder to regress 20 hand joint angles from egocentric RGB images and 128-channel forearm HD-sEMG. An independent learnable query is assigned to each hand DoF, enabling joint-specific and context-adaptive integration of visual and EMG representations.</span><span class="lang-zh">我们结合视觉 Transformer 编码器、基于 Transformer 的肌电编码器与 DoF-query 融合解码器，从第一视角 RGB 图像和 128 通道前臂高密度表面肌电中回归 20 个手部关节角。每个手部自由度对应一个独立的可学习查询，从而实现面向关节、随情境自适应的视觉与肌电特征融合。</span></p>
                 </div>
               </div>
             </div>
