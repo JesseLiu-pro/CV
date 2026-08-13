@@ -7,9 +7,9 @@
   <meta id="theme-color" name="theme-color" content="#102319">
   <title>Jiahang Liu | Research CV</title>
   <link rel="preconnect" href="https://unpkg.com">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=life-wall-23">
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="script.js?v=life-wall-23" defer></script>
 </head>
 <body class="view-work">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -153,37 +153,111 @@
           <article class="project-row project-row-featured reveal">
             <div class="project-content">
               <p class="project-kicker"><span class="lang-en">Current research · Under Review</span><span class="lang-zh">当前研究 · 审稿中</span></p>
-              <h3>Continuous Multi-Joint Hand Angle Estimation via Single RGB Image and High-Density sEMG Fusion</h3>
-              <div class="project-byline">
-                <p class="project-affiliation">Dalian University of Technology / University of Tokyo</p>
-                <p class="project-period">2025.09 — <span class="lang-en">PRESENT</span><span class="lang-zh">至今</span></p>
-              </div>
+              <h3>Multimodal Hand Joint-Angle Regression from Egocentric Vision and Forearm High-Density Surface Electromyography</h3>
+              <p class="project-affiliation">Dalian University of Technology / University of Tokyo</p>
+              <p class="project-period">2025.09 — <span class="lang-en">PRESENT</span><span class="lang-zh">至今</span></p>
               <div class="research-feature">
-                <figure class="research-feature-figure research-ruled-block">
-                  <img src="assets/thumbnails/research/dof-query-framework-paper.webp" alt="DoF-Query multimodal fusion architecture" loading="lazy" decoding="async" width="1200" height="509">
+                <div class="research-feature-visuals">
+                  <figure class="research-feature-figure">
+                    <img src="assets/thumbnails/research/dof-query-framework-paper.webp" alt="DoF-Query multimodal fusion architecture" loading="lazy" decoding="async" width="1200" height="509">
+                  </figure>
+                  <div class="experiment-panels" aria-label="Experimental setup">
+                    <figure class="experiment-panel experiment-panel-a">
+                      <img src="assets/thumbnails/research/experiment-setup-a-clean-v2.webp" alt="Egocentric RGB and motion-capture experimental environment" loading="lazy" decoding="async" width="688" height="503">
+                    </figure>
+                    <figure class="experiment-panel experiment-panel-animated">
+                      <div class="experiment-panel-b-content">
+                        <img src="assets/thumbnails/research/experiment-setup-b-arrowless.webp" alt="Reflective markers and forearm high-density sEMG acquisition hardware" loading="lazy" decoding="async" width="688" height="697">
+                        <img class="source-arrow source-arrow-marker arrow-jump-up" src="assets/thumbnails/research/arrow-marker-up.png" alt="" aria-hidden="true">
+                        <img class="source-arrow source-arrow-array arrow-jump-up" src="assets/thumbnails/research/arrow-array-up.png" alt="" aria-hidden="true">
+                        <img class="source-arrow source-arrow-reference arrow-jump-down" src="assets/thumbnails/research/arrow-reference-down.png" alt="" aria-hidden="true">
+                        <img class="source-arrow source-arrow-unit arrow-jump-down" src="assets/thumbnails/research/arrow-unit-down.png" alt="" aria-hidden="true">
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+                <div class="research-feature-copy">
+                  <div>
+                    <p class="research-copy-label"><span class="lang-en">Introduction</span><span class="lang-zh">研究简介</span></p>
+                    <p><span class="lang-en">Continuous and accurate estimation of hand joint angles is important for intuitive human-machine interaction, yet a single sensing modality may not remain reliable across changing operating conditions. Egocentric RGB images provide hand appearance and spatial configuration, whereas forearm HD-sEMG captures muscle activation even when visual observations are degraded.</span><span class="lang-zh">连续、准确的手部关节角估计是实现直观人机交互的重要基础，但单一传感模态难以在不断变化的工作条件下始终保持可靠。第一视角 RGB 图像提供手部外观与空间构型信息，前臂高密度表面肌电则能在视觉信息受损时继续反映肌肉激活。</span></p>
+                  </div>
+                  <div>
+                    <p class="research-copy-label"><span class="lang-en">Method</span><span class="lang-zh">研究方法</span></p>
+                    <p><span class="lang-en">We combine a Vision Transformer visual encoder, a Transformer-based EMG encoder, and a DoF-query fusion decoder to regress 20 hand joint angles from egocentric RGB images and 128-channel forearm HD-sEMG. An independent learnable query is assigned to each hand DoF, enabling joint-specific and context-adaptive integration of visual and EMG representations.</span><span class="lang-zh">我们结合视觉 Transformer 编码器、基于 Transformer 的肌电编码器与 DoF-query 融合解码器，从第一视角 RGB 图像和 128 通道前臂高密度表面肌电中回归 20 个手部关节角。每个手部自由度对应一个独立的可学习查询，从而实现面向关节、随情境自适应的视觉与肌电特征融合。</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="research-results">
+                <div class="results-chart" aria-label="Model performance comparison">
+                  <p class="research-copy-label"><span class="lang-en">Results</span><span class="lang-zh">实验结果</span></p>
+                  <div class="metric-chart">
+                    <div class="metric-chart-title"><span>R²</span></div>
+                    <div class="metric-bars">
+                      <div class="metric-bar metric-bar-emg" style="--mean:.25;--low:.04;--high:.62" aria-label="sEMG: mean 0.68, range 0.56 to 0.85"><span>0.68</span><div class="metric-plot"><i></i><b></b></div><small>sEMG</small></div>
+                      <div class="metric-bar metric-bar-vision" style="--mean:.68;--low:.20;--high:.90" aria-label="Vision: mean 0.82, range 0.66 to 0.91"><span>0.82</span><div class="metric-plot"><i></i><b></b></div><small>Vision</small></div>
+                      <div class="metric-bar metric-bar-fusion" style="--mean:.82;--low:.57;--high:.98" aria-label="Fusion: mean 0.88, range 0.79 to 0.95"><span>0.88</span><div class="metric-plot"><i></i><b></b></div><small>Fusion</small></div>
+                    </div>
+                  </div>
+                  <div class="metric-chart">
+                    <div class="metric-chart-title"><span>MAE</span></div>
+                    <div class="metric-bars">
+                      <div class="metric-bar metric-bar-emg" style="--mean:.72;--low:.34;--high:.98" aria-label="sEMG: mean 5.13 degrees, range 3.53 to 6.72 degrees"><span>5.13°</span><div class="metric-plot"><i></i><b></b></div><small>sEMG</small></div>
+                      <div class="metric-bar metric-bar-vision" style="--mean:.30;--low:.10;--high:.44" aria-label="Vision: mean 3.21 degrees, range 2.46 to 3.95 degrees"><span>3.21°</span><div class="metric-plot"><i></i><b></b></div><small>Vision</small></div>
+                      <div class="metric-bar metric-bar-fusion" style="--mean:.18;--low:.03;--high:.30" aria-label="Fusion: mean 2.79 degrees, range 2.07 to 3.21 degrees"><span>2.79°</span><div class="metric-plot"><i></i><b></b></div><small>Fusion</small></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="results-summary">
+                  <div class="lang-en">
+                    <p><strong>More accurate, stable reconstruction.</strong> Fusion reached an overall R² of 0.88 and an MAE of 2.79°, outperforming vision only (0.82 / 3.21°) and sEMG only (0.68 / 5.13°), while showing the smallest cross-subject range.</p>
+                    <p><strong>Interpretable, context-adaptive fusion.</strong> Separate DoF queries learned different modality-attention patterns for individual joints and motion phases. Vision preserved spatial hand configuration, while sEMG supplied complementary dynamic cues when occlusion, finger overlap, or motion blur weakened visual evidence. The attention indicates selective internal feature use, rather than explicit detection of modality failure.</p>
+                  </div>
+                  <div class="lang-zh">
+                    <p><strong>更准确、更稳定的手部重建。</strong> 融合模型的整体 R² 达到 0.88，MAE 为 2.79°，优于仅视觉模型（0.82 / 3.21°）和仅肌电模型（0.68 / 5.13°），同时具有最小的跨受试者变化范围。</p>
+                    <p><strong>可解释、随情境自适应的融合。</strong> 独立的 DoF 查询针对不同关节与运动阶段学习了不同的模态注意模式。视觉维持手部空间构型；当遮挡、手指重叠或运动模糊削弱视觉证据时，肌电提供互补的动态线索。这里的注意模式表示模型内部对特征的选择性使用，而不是对模态失效的显式检测。</p>
+                  </div>
+                </div>
+                <figure class="research-reconstruction">
+                <div class="reconstruction-table" data-reconstruction-table>
+                  <video class="reconstruction-source" data-loop-trim="1.5" muted playsinline preload="metadata" aria-hidden="true">
+                    <source src="assets/videos/research/four-hand-models-source.mp4" type="video/mp4">
+                  </video>
+                  <video class="reconstruction-source" data-loop-end="37" muted playsinline preload="metadata" aria-hidden="true">
+                    <source src="assets/videos/research/four-hand-models-sequence-02-source.mp4" type="video/mp4">
+                  </video>
+                  <video class="reconstruction-source" data-loop-trim="1" muted playsinline preload="metadata" aria-hidden="true">
+                    <source src="assets/videos/research/four-hand-models-sequence-03-source.mp4" type="video/mp4">
+                  </video>
+                  <video class="reconstruction-source" data-loop-trim="1" muted playsinline preload="metadata" aria-hidden="true">
+                    <source src="assets/videos/research/four-hand-models-sequence-04-source.mp4" type="video/mp4">
+                  </video>
+                  <div class="reconstruction-head"><span class="lang-en">Egocentric image</span><span class="lang-zh">第一视角图像</span></div>
+                  <div class="reconstruction-head"><span class="lang-en">Ground Truth</span><span class="lang-zh">真实值</span></div>
+                  <div class="reconstruction-head"><span class="lang-en">Fusion (Ours)</span><span class="lang-zh">融合模型（本文）</span></div>
+                  <div class="reconstruction-head"><span class="lang-en">Vision only</span><span class="lang-zh">仅视觉模型</span></div>
+                  <div class="reconstruction-head"><span class="lang-en">sEMG only</span><span class="lang-zh">仅肌电模型</span></div>
+                  <div class="reconstruction-cell reconstruction-cell-input"><canvas data-crop="70,190,380,380" aria-label="Egocentric input image"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-crop="550,218,315,342" aria-label="Ground-truth hand model"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-crop="894,218,315,342" aria-label="Vision and sEMG fusion hand model"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-crop="1580,218,315,342" aria-label="Vision-only hand model"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-crop="1238,218,315,342" aria-label="sEMG-only hand model"></canvas></div>
+                  <div class="reconstruction-cell reconstruction-cell-input"><canvas data-video="1" data-crop="70,190,380,380" aria-label="Egocentric input image from the second sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="1" data-crop="550,218,315,342" aria-label="Ground-truth hand model from the second sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="1" data-crop="894,218,315,342" aria-label="Vision and sEMG fusion hand model from the second sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="1" data-crop="1580,218,315,342" aria-label="Vision-only hand model from the second sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="1" data-crop="1238,218,315,342" aria-label="sEMG-only hand model from the second sequence"></canvas></div>
+                  <div class="reconstruction-cell reconstruction-cell-input"><canvas data-video="2" data-crop="35,294,450,450" aria-label="Egocentric input image from the third sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="2" data-crop="550,300,315,320" aria-label="Ground-truth hand model from the third sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="2" data-crop="894,300,315,320" aria-label="Vision and sEMG fusion hand model from the third sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="2" data-crop="1580,300,315,320" aria-label="Vision-only hand model from the third sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="2" data-crop="1238,300,315,320" aria-label="sEMG-only hand model from the third sequence"></canvas></div>
+                  <div class="reconstruction-cell reconstruction-cell-input"><canvas data-video="3" data-crop="35,294,450,450" aria-label="Egocentric input image from the fourth sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="3" data-crop="550,300,315,320" aria-label="Ground-truth hand model from the fourth sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="3" data-crop="894,300,315,320" aria-label="Vision and sEMG fusion hand model from the fourth sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="3" data-crop="1580,300,315,320" aria-label="Vision-only hand model from the fourth sequence"></canvas></div>
+                  <div class="reconstruction-cell"><canvas data-video="3" data-crop="1238,300,315,320" aria-label="sEMG-only hand model from the fourth sequence"></canvas></div>
+                </div>
                 </figure>
-                <div class="research-copy-block research-ruled-block">
-                  <p class="research-copy-label"><span class="lang-en">Introduction</span><span class="lang-zh">研究简介</span></p>
-                  <p><span class="lang-en">Continuous and accurate estimation of hand joint angles is important for intuitive human-machine interaction, yet a single sensing modality may not remain reliable across changing operating conditions. Egocentric RGB images provide hand appearance and spatial configuration, whereas forearm HD-sEMG captures muscle activation even when visual observations are degraded.</span><span class="lang-zh">连续、准确的手部关节角估计是实现直观人机交互的重要基础，但单一传感模态难以在不断变化的工作条件下始终保持可靠。第一视角 RGB 图像提供手部外观与空间构型信息，前臂高密度表面肌电则能在视觉信息受损时继续反映肌肉激活。</span></p>
-                </div>
-                <div class="experiment-panels research-ruled-block" aria-label="Experimental setup">
-                  <figure class="experiment-panel">
-                    <img src="assets/thumbnails/research/experiment-setup-a-clean.webp" alt="Egocentric RGB and motion-capture experimental environment" loading="lazy" decoding="async" width="688" height="503">
-                  </figure>
-                  <figure class="experiment-panel experiment-panel-animated">
-                    <img src="assets/thumbnails/research/experiment-setup-b-clean.webp" alt="Reflective markers and forearm high-density sEMG acquisition hardware" loading="lazy" decoding="async" width="688" height="697">
-                    <svg class="experiment-flow" viewBox="0 0 688 697" aria-hidden="true">
-                      <g class="arrow-bounce arrow-bounce-up arrow-delay-1"><path d="M205 449 L205 389 M194 403 L205 389 L216 403" /></g>
-                      <g class="arrow-bounce arrow-bounce-up arrow-delay-2"><path d="M480 385 L480 278 M469 292 L480 278 L491 292" /></g>
-                      <g class="arrow-bounce arrow-bounce-down arrow-delay-1"><path d="M287 553 L287 620 M276 606 L287 620 L298 606" /></g>
-                      <g class="arrow-bounce arrow-bounce-down arrow-delay-2"><path d="M366 552 L366 619 M355 605 L366 619 L377 605" /></g>
-                    </svg>
-                  </figure>
-                </div>
-                <div class="research-copy-block research-ruled-block">
-                  <p class="research-copy-label"><span class="lang-en">Method</span><span class="lang-zh">研究方法</span></p>
-                  <p><span class="lang-en">We combine a Vision Transformer visual encoder, a Transformer-based EMG encoder, and a DoF-query fusion decoder to regress 20 hand joint angles from egocentric RGB images and 128-channel forearm HD-sEMG. An independent learnable query is assigned to each hand DoF, enabling joint-specific and context-adaptive integration of visual and EMG representations.</span><span class="lang-zh">我们结合视觉 Transformer 编码器、基于 Transformer 的肌电编码器与 DoF-query 融合解码器，从第一视角 RGB 图像和 128 通道前臂高密度表面肌电中回归 20 个手部关节角。每个手部自由度对应一个独立的可学习查询，从而实现面向关节、随情境自适应的视觉与肌电特征融合。</span></p>
-                </div>
               </div>
             </div>
           </article>
@@ -342,18 +416,70 @@
           <h2 id="life-title"><span class="lang-en">Life in<br>motion.</span><span class="lang-zh">生活<br>在流动。</span></h2>
           <p><span class="lang-en">The same curiosity, expressed through sound, movement, conversation, and craft.</span><span class="lang-zh">同一种好奇心，在声音、运动、交流与手作中延续。</span></p>
         </div>
+        <a class="life-gallery-cue" href="#life-atlas"><span><span class="lang-en">Explore interests</span><span class="lang-zh">探索兴趣</span></span><i data-lucide="arrow-down" aria-hidden="true"></i></a>
       </section>
-      <section class="life-index" aria-label="Personal interests">
-        <div class="life-index-heading">
-          <p class="eyebrow"><span class="lang-en">Five directions</span><span class="lang-zh">五个方向</span></p>
+
+      <section class="life-atlas" id="life-atlas" aria-label="Personal interests" data-life-atlas>
+        <div class="interest-orbit" aria-label="Diversity connected to personal interests">
+          <svg class="interest-orbit-lines" viewBox="0 0 1000 680" preserveAspectRatio="none" aria-hidden="true">
+            <path pathLength="1" d="M500 340 L500 82 M500 340 L710 92 M500 340 L875 205 M500 340 L825 405 M500 340 L740 592 M500 340 L500 620 M500 340 L285 590 M500 340 L120 500 M500 340 L135 275 M500 340 L275 105 M500 340 L350 225 M500 340 L650 260 M500 340 L338 450" />
+          </svg>
+          <div class="interest-ball ball-core"><span>Diversity</span></div>
+          <div class="interest-ball ball-jazz">Jazz</div>
+          <div class="interest-ball ball-hifi">HiFi</div>
+          <div class="interest-ball ball-singing"><span class="lang-en">Singing</span><span class="lang-zh">唱歌</span></div>
+          <div class="interest-ball ball-badminton"><span class="lang-en">Badminton</span><span class="lang-zh">羽毛球</span></div>
+          <div class="interest-ball ball-football"><span class="lang-en">Football</span><span class="lang-zh">足球</span></div>
+          <div class="interest-ball ball-driving"><span class="lang-en">Driving</span><span class="lang-zh">驾驶</span></div>
+          <div class="interest-ball ball-diving"><span class="lang-en">Scuba diving</span><span class="lang-zh">水肺潜水</span></div>
+          <div class="interest-ball ball-skiing"><span class="lang-en">Skiing</span><span class="lang-zh">滑雪</span></div>
+          <div class="interest-ball ball-rafting"><span class="lang-en">Rafting</span><span class="lang-zh">漂流</span></div>
+          <div class="interest-ball ball-kayaking"><span class="lang-en">Kayaking</span><span class="lang-zh">皮划艇</span></div>
+          <div class="interest-ball ball-photography"><span class="lang-en">Photography</span><span class="lang-zh">摄影</span></div>
+          <div class="interest-ball ball-travel"><span class="lang-en">Travel</span><span class="lang-zh">旅行</span></div>
+          <div class="interest-ball ball-coffee"><span class="lang-en">Coffee</span><span class="lang-zh">咖啡</span></div>
         </div>
-        <div class="life-list">
-          <article class="life-row reveal"><h3><span class="lang-en">Football</span><span class="lang-zh">足球</span></h3><i data-lucide="circle" aria-hidden="true"></i></article>
-          <article class="life-row reveal"><h3>HiFi</h3><i data-lucide="audio-waveform" aria-hidden="true"></i></article>
-          <article class="life-row reveal"><h3><span class="lang-en">Singing</span><span class="lang-zh">唱歌</span></h3><i data-lucide="mic-2" aria-hidden="true"></i></article>
-          <article class="life-row reveal"><h3><span class="lang-en">Billiards</span><span class="lang-zh">台球</span></h3><i data-lucide="circle-dot" aria-hidden="true"></i></article>
-          <article class="life-row reveal"><h3><span class="lang-en">Coffee</span><span class="lang-zh">咖啡</span></h3><i data-lucide="coffee" aria-hidden="true"></i></article>
-        </div>
+        <a class="life-gallery-cue" href="#life-gallery"><span><span class="lang-en">Photo wall</span><span class="lang-zh">照片墙</span></span><i data-lucide="arrow-down" aria-hidden="true"></i></a>
+      </section>
+
+      <section class="life-gallery" id="life-gallery" aria-labelledby="life-gallery-title">
+        <header class="life-gallery-heading reveal">
+          <div>
+            <p class="eyebrow"><span class="lang-en">Collected moments</span><span class="lang-zh">片刻收集</span></p>
+            <h2 id="life-gallery-title"><span class="lang-en">Photo wall</span><span class="lang-zh">照片墙</span></h2>
+          </div>
+        </header>
+        <section class="photo-chapter" aria-labelledby="activity-title">
+          <h3 id="activity-title"><span class="lang-en">What I Do</span><span class="lang-zh">我所做的</span></h3>
+          <div class="photo-wall">
+          <button class="photo-tile photo-hi tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/01-hi.jpg" data-lightbox-caption="Hi" aria-label="View Hi photo"><img src="assets/life/gallery/01-hi.jpg" alt="Jesse Liu raising both arms in the mountains" loading="lazy" decoding="async"><strong>Hi</strong></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/02-rafting.jpg" data-lightbox-caption="Rafting" aria-label="View rafting photo"><img src="assets/life/gallery/02-rafting.jpg" alt="White-water rafting with friends" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/05-beach.jpg" data-lightbox-caption="On the coast" aria-label="View beach photo"><img src="assets/life/gallery/05-beach.jpg" alt="Playing on a beach at sunset" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/06-football.jpg" data-lightbox-caption="Football" aria-label="View football photo"><img src="assets/life/gallery/06-football.jpg" alt="Football group after a match" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/08-skiing.jpg" data-lightbox-caption="Skiing" aria-label="View skiing photo"><img src="assets/life/gallery/08-skiing.jpg" alt="Jesse Liu skiing at sunset" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/10-dog.jpg" data-lightbox-caption="A good day" aria-label="View dog photo"><img src="assets/life/gallery/10-dog.jpg" alt="Jesse Liu taking a selfie with a dog" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/11-jazz-bar.jpg" data-lightbox-caption="After hours" aria-label="View jazz bar photo"><img src="assets/life/gallery/11-jazz-bar.jpg" alt="A red-lit bar counter" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/15-portrait.jpg" data-lightbox-caption="Double exposure" aria-label="View portrait"><img src="assets/life/gallery/15-portrait.jpg" alt="Black-and-white double exposure portrait of Jesse Liu" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-square reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/17-kayak.jpg" data-lightbox-caption="Kayaking" aria-label="View kayaking photo"><img src="assets/life/gallery/17-kayak.jpg" alt="Kayaks on a quiet beach" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/19-scuba-diving.jpg" data-lightbox-caption="Scuba diving" aria-label="View scuba diving photo"><img src="assets/life/gallery/19-scuba-diving.jpg" alt="Scuba diving equipment beside a swimming pool" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/20-driving.jpg" data-lightbox-caption="Driving" aria-label="View driving photo"><img src="assets/life/gallery/20-driving.jpg" alt="Jesse Liu beside a car in rolling hills" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/22-football-team.jpg" data-lightbox-caption="Football team" aria-label="View football team photo"><img src="assets/life/gallery/22-football-team.jpg" alt="Football team portrait on a field" loading="lazy" decoding="async"></button>
+          </div>
+        </section>
+        <section class="photo-chapter" aria-labelledby="landscape-title">
+          <h3 id="landscape-title"><span class="lang-en">What I See</span><span class="lang-zh">我所见的</span></h3>
+          <div class="photo-wall">
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/03-sydney.jpg" data-lightbox-caption="Sydney" aria-label="View Sydney photo"><img src="assets/life/gallery/03-sydney.jpg" alt="Sydney Opera House and skyline at sunset" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-panorama reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/04-sakura-train.jpg" data-lightbox-caption="Spring in Tokyo" aria-label="View spring train photo"><img src="assets/life/gallery/04-sakura-train.jpg" alt="Train passing beneath cherry blossoms in Tokyo" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/07-seabirds.jpg" data-lightbox-caption="By the sea" aria-label="View seabirds photo"><img src="assets/life/gallery/07-seabirds.jpg" alt="Seabirds circling over a quiet waterfront" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/09-lake.jpg" data-lightbox-caption="Lakeside" aria-label="View lake photo"><img src="assets/life/gallery/09-lake.jpg" alt="Mountain lake beneath moving clouds" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/12-mount-fuji.jpg" data-lightbox-caption="Mount Fuji" aria-label="View Mount Fuji photo"><img src="assets/life/gallery/12-mount-fuji.jpg" alt="Mount Fuji beyond snow and power lines" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/14-hakone-train.jpg" data-lightbox-caption="Hakone" aria-label="View Hakone train photo"><img src="assets/life/gallery/14-hakone-train.jpg" alt="Mountain railway arriving at a forest station" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/16-tokyo-snow.jpg" data-lightbox-caption="Snow in Tokyo" aria-label="View Tokyo snow photo"><img src="assets/life/gallery/16-tokyo-snow.jpg" alt="Snow-covered avenue at the University of Tokyo" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/21-city-evening.jpg" data-lightbox-caption="City evening" aria-label="View city evening photo"><img src="assets/life/gallery/21-city-evening.jpg" alt="City traffic beneath a dramatic evening sky" loading="lazy" decoding="async"></button>
+          </div>
+        </section>
+        <button class="photo-tile photo-childhood reveal" type="button" data-lightbox-src="assets/life/gallery/18-childhood.jpg" data-lightbox-caption="Cheers!" aria-label="View childhood photo"><img src="assets/life/gallery/18-childhood.jpg" alt="Jesse Liu as a child beside a Coca-Cola display" loading="lazy" decoding="async"><strong>Cheers!</strong></button>
       </section>
       <a class="life-back-top" href="#top" aria-label="Back to top">
         <span class="lang-en">Back to top</span><span class="lang-zh">返回顶部</span>

@@ -122,6 +122,15 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+const metricCharts = document.querySelectorAll('.results-chart');
+const metricObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    entry.target.classList.toggle('is-animating', entry.isIntersecting);
+  });
+}, { threshold: 0.22, rootMargin: '0px 0px -8%' });
+metricCharts.forEach((element) => metricObserver.observe(element));
+
 if (window.location.hash === '#life') {
   setView('life');
 }
@@ -131,8 +140,9 @@ const imageLightbox = document.getElementById('image-lightbox');
 const lightboxImage = imageLightbox?.querySelector('img');
 const lightboxCaption = document.getElementById('lightbox-caption');
 
-document.querySelectorAll('[data-lightbox-src]').forEach((button) => {
-  button.addEventListener('click', () => {
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-lightbox-src]');
+  if (button) {
     if (!imageLightbox || !lightboxImage || !lightboxCaption) return;
     lightboxImage.src = button.dataset.lightboxSrc;
     lightboxImage.alt = button.querySelector('img')?.alt || '';
@@ -140,7 +150,7 @@ document.querySelectorAll('[data-lightbox-src]').forEach((button) => {
     body.classList.add('lightbox-open');
     imageLightbox.showModal();
     if (cursorDot) imageLightbox.appendChild(cursorDot);
-  });
+  }
 });
 
 const closeImageLightbox = () => {
@@ -217,5 +227,86 @@ document.querySelectorAll('[data-drag-scroll]').forEach((rail) => {
     if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
     event.preventDefault();
     rail.scrollBy({ left: event.key === 'ArrowRight' ? 320 : -320, behavior: 'smooth' });
+  });
+});
+
+document.querySelectorAll('[data-reconstruction-table]').forEach((table) => {
+  const videos = [...table.querySelectorAll('.reconstruction-source')];
+  const canvases = [...table.querySelectorAll('canvas[data-crop]')];
+  if (!videos.length || !canvases.length) return;
+
+  const crops = canvases.map((canvas) => ({
+    video: videos[Number(canvas.dataset.video || 0)],
+    rect: canvas.dataset.crop.split(',').map(Number),
+  }));
+  let animationFrame = 0;
+  let isActive = false;
+  let lastDrawTime = 0;
+  const frameInterval = 1000 / 15;
+
+  const draw = (time = 0) => {
+    if (!isActive || document.hidden) return;
+    if (time - lastDrawTime < frameInterval) {
+      animationFrame = requestAnimationFrame(draw);
+      return;
+    }
+    lastDrawTime = time;
+    canvases.forEach((canvas, index) => {
+      const { video, rect } = crops[index];
+      if (video?.readyState >= 2) {
+        const [x, y, width, height] = rect;
+        const size = Math.max(width, height);
+        if (canvas.width !== size || canvas.height !== size) {
+          canvas.width = size;
+          canvas.height = size;
+        }
+        const context = canvas.getContext('2d', { alpha: true });
+        context.clearRect(0, 0, size, size);
+        context.drawImage(video, x, y, width, height, 0, 0, size, size);
+      }
+    });
+    animationFrame = requestAnimationFrame(draw);
+  };
+
+  const startRendering = () => {
+    if (isActive || document.hidden) return;
+    isActive = true;
+    videos.forEach((video) => video.play().catch(() => {}));
+    cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(draw);
+  };
+
+  const stopRendering = () => {
+    isActive = false;
+    cancelAnimationFrame(animationFrame);
+    videos.forEach((video) => video.pause());
+  };
+
+  videos.forEach((video) => {
+    video.addEventListener('loadedmetadata', () => {
+      if (isActive) video.play().catch(() => {});
+    });
+    video.addEventListener('timeupdate', () => {
+      const explicitEnd = Number(video.dataset.loopEnd);
+      const trim = Number(video.dataset.loopTrim || 0);
+      const loopEnd = Number.isFinite(explicitEnd) && explicitEnd > 0 ? explicitEnd : video.duration - trim;
+      if (loopEnd > 0 && video.currentTime >= loopEnd) video.currentTime = 0;
+    });
+  });
+
+  const renderingObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) startRendering();
+      else stopRendering();
+    });
+  }, { threshold: 0.01, rootMargin: '320px 0px' });
+  renderingObserver.observe(table);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopRendering();
+    } else if (table.getBoundingClientRect().bottom > -320 && table.getBoundingClientRect().top < window.innerHeight + 320) {
+      startRendering();
+    }
   });
 });
