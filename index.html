@@ -7,9 +7,9 @@
   <meta id="theme-color" name="theme-color" content="#102319">
   <title>Jiahang Liu | Research CV</title>
   <link rel="preconnect" href="https://unpkg.com">
-  <link rel="stylesheet" href="styles.css?v=life-wall-23">
+  <link rel="stylesheet" href="styles.css?v=location-style-29">
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
-  <script src="script.js?v=media-preview-25" defer></script>
+  <script src="script.js?v=life-nav-26" defer></script>
 </head>
 <body class="view-work">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -17,12 +17,16 @@
   <header class="site-header" id="site-header">
     <a class="wordmark" href="#top" aria-label="Jesse Liu home">Jesse<span class="wordmark-dot">.</span>L</a>
     <nav class="desktop-nav" id="primary-nav" aria-label="Primary navigation">
-      <a href="#top" data-section-link="top"><span class="lang-en">Introduction</span><span class="lang-zh">简介</span></a>
-      <a href="#education" data-section-link="education"><span class="lang-en">Education</span><span class="lang-zh">教育</span></a>
-      <a href="#publications" data-section-link="publications"><span class="lang-en">Publications</span><span class="lang-zh">论文</span></a>
-      <a href="#research" data-section-link="research"><span class="lang-en">Research</span><span class="lang-zh">科研</span></a>
-      <a href="#design" data-section-link="design"><span class="lang-en">Design</span><span class="lang-zh">设计</span></a>
-      <a href="#skills" data-section-link="skills"><span class="lang-en">Skills</span><span class="lang-zh">技能</span></a>
+      <a href="#top" data-nav-view="work" data-section-link="top"><span class="lang-en">Introduction</span><span class="lang-zh">简介</span></a>
+      <a href="#education" data-nav-view="work" data-section-link="education"><span class="lang-en">Education</span><span class="lang-zh">教育</span></a>
+      <a href="#publications" data-nav-view="work" data-section-link="publications"><span class="lang-en">Publications</span><span class="lang-zh">论文</span></a>
+      <a href="#research" data-nav-view="work" data-section-link="research"><span class="lang-en">Research</span><span class="lang-zh">科研</span></a>
+      <a href="#design" data-nav-view="work" data-section-link="design"><span class="lang-en">Design</span><span class="lang-zh">设计</span></a>
+      <a href="#skills" data-nav-view="work" data-section-link="skills"><span class="lang-en">Skills</span><span class="lang-zh">技能</span></a>
+      <a href="#top" data-nav-view="life" data-section-link="top" hidden><span class="lang-en">Introduction</span><span class="lang-zh">简介</span></a>
+      <a href="#life-opening" data-nav-view="life" data-section-link="life-opening" hidden><span class="lang-en">Opening</span><span class="lang-zh">开场</span></a>
+      <a href="#life-atlas" data-nav-view="life" data-section-link="life-atlas" hidden><span class="lang-en">Hobby</span><span class="lang-zh">兴趣</span></a>
+      <a href="#photo-booth" data-nav-view="life" data-section-link="photo-booth" hidden><span class="lang-en">Photo Booth</span><span class="lang-zh">照片亭</span></a>
     </nav>
     <div class="header-actions">
       <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
@@ -50,8 +54,8 @@
         <div class="hero-introduction reveal">
           <p class="hero-welcome"><span class="lang-en">WELCOME TO MY HOME PAGE!</span><span class="lang-zh">欢迎来到我的主页！</span></p>
           <p class="lang-en">I am an M.S. candidate in Mechanical Engineering at Dalian University of Technology and a former Special Research Student at The University of Tokyo. My research explores multimodal fusion of vision and sEMG for hand-motion understanding, human-intent perception, and dexterous teleoperation.</p>
-          <p class="lang-zh">我是大连理工大学机械工程硕士研究生，曾赴东京大学担任特别研究学生。我的研究聚焦视觉与表面肌电的多模态融合，用于手部运动理解、人体意图感知与灵巧遥操作。</p>
-          <p class="hero-crossing"><span class="lang-en">I believe human-robot interaction is shaped by more than technology: aesthetics is also fundamental to how interaction is perceived and experienced. This belief connects my robotics research with my work across industrial design projects.</span><span class="lang-zh">我认为，人机交互不仅由技术塑造，美学同样影响交互被感知和体验的方式。因此，我也参与了多个工业设计项目，并将工程研究与产品美学贯穿于同一套实践之中。</span></p>
+          <p class="lang-zh">我是大连理工大学机械工程学院硕士研究生，曾赴东京大学交流。我的研究聚焦视觉与表面肌电的多模态融合，用于手部运动理解、人体意图感知与灵巧遥操作。</p>
+          <p class="hero-crossing"><span class="lang-en">I believe human-robot interaction is shaped by more than technology. Aesthetics is also fundamental to how interaction is perceived and experienced. This belief connects my engineering research with my work on industrial design projects.</span><span class="lang-zh">我认为，人机交互不仅由技术塑造，美学同样影响交互被感知和体验的方式。因此，我也参与了多个工业设计项目，并将工程研究与产品美学贯穿于同一套实践之中。</span></p>
         </div>
         <div class="profile-tabs reveal" role="tablist" aria-label="Profile view">
           <button id="work-tab" type="button" role="tab" aria-selected="true" aria-controls="work-view" data-view="work">
@@ -62,9 +66,9 @@
           </button>
         </div>
         <address class="hero-contact reveal">
-          <a href="mailto:jiahangliupro@gmail.com"><span>Email</span><strong>jiahangliupro@gmail.com</strong></a>
+          <a href="mailto:jiahangliupro@gmail.com"><span><span class="lang-en">Email</span><span class="lang-zh">邮箱</span></span><strong>jiahangliupro@gmail.com</strong></a>
           <a href="tel:+8613555895355"><span><span class="lang-en">Phone</span><span class="lang-zh">电话</span></span><strong>+86 135 5589 5355</strong></a>
-          <p><span><span class="lang-en">Based in</span><span class="lang-zh">所在地</span></span><strong>Dalian, China</strong></p>
+          <p><span><span class="lang-en">Based in</span><span class="lang-zh">所在地</span></span><strong><span class="lang-en">Dalian, China</span><span class="lang-zh">大连，中国</span></strong></p>
           <a href="https://orcid.org/0009-0005-8706-3198" target="_blank" rel="noreferrer"><span>ORCID</span><strong>0009-0005-8706-3198</strong></a>
         </address>
       </div>
@@ -89,7 +93,7 @@
             <div>
               <h3><span class="lang-en">The University of Tokyo</span><span class="lang-zh">东京大学</span></h3>
               <p class="timeline-role"><span class="lang-en">Special Research Student · Graduate School of Engineering</span><span class="lang-zh">工学系研究科 · 特别研究学生</span></p>
-              <p class="timeline-meta">Tokyo, Japan</p>
+              <p class="timeline-meta"><span class="lang-en">Tokyo, Japan</span><span class="lang-zh">东京，日本</span></p>
             </div>
           </article>
           <article class="timeline-row reveal">
@@ -97,7 +101,7 @@
             <div>
               <h3><span class="lang-en">Dalian University of Technology</span><span class="lang-zh">大连理工大学</span></h3>
               <p class="timeline-role"><span class="lang-en">M.S. Student · Mechanical Engineering</span><span class="lang-zh">机械工程 · 硕士研究生</span></p>
-              <p class="timeline-meta">Dalian, China</p>
+              <p class="timeline-meta"><span class="lang-en">Dalian, China</span><span class="lang-zh">大连，中国</span></p>
             </div>
           </article>
           <article class="timeline-row reveal">
@@ -153,8 +157,8 @@
           <article class="project-row project-row-featured reveal">
             <div class="project-content">
               <p class="project-kicker"><span class="lang-en">Current research · Under Review</span><span class="lang-zh">当前研究 · 审稿中</span></p>
-              <h3>Multimodal Hand Joint-Angle Regression from Egocentric Vision and Forearm High-Density Surface Electromyography</h3>
-              <p class="project-affiliation">Dalian University of Technology / University of Tokyo</p>
+              <h3><span class="lang-en">Multimodal Hand Joint-Angle Regression from Egocentric Vision and Forearm High-Density Surface Electromyography</span><span class="lang-zh">基于第一视角视觉与前臂高密度表面肌电的多模态手部关节角回归</span></h3>
+              <p class="project-affiliation"><span class="lang-en">Dalian University of Technology / University of Tokyo</span><span class="lang-zh">大连理工大学 / 东京大学</span></p>
               <p class="project-period">2025.09 — <span class="lang-en">PRESENT</span><span class="lang-zh">至今</span></p>
               <div class="research-feature">
                 <div class="research-feature-visuals">
@@ -183,7 +187,7 @@
                   </div>
                   <div>
                     <p class="research-copy-label"><span class="lang-en">Method</span><span class="lang-zh">研究方法</span></p>
-                    <p><span class="lang-en">We combine a Vision Transformer visual encoder, a Transformer-based EMG encoder, and a DoF-query fusion decoder to regress 20 hand joint angles from egocentric RGB images and 128-channel forearm HD-sEMG. An independent learnable query is assigned to each hand DoF, enabling joint-specific and context-adaptive integration of visual and EMG representations.</span><span class="lang-zh">我们结合视觉 Transformer 编码器、基于 Transformer 的肌电编码器与 DoF-query 融合解码器，从第一视角 RGB 图像和 128 通道前臂高密度表面肌电中回归 20 个手部关节角。每个手部自由度对应一个独立的可学习查询，从而实现面向关节、随情境自适应的视觉与肌电特征融合。</span></p>
+                    <p><span class="lang-en">We combine a Vision Transformer visual encoder, a Transformer-based EMG encoder, and a DoF-query fusion decoder to regress 20 hand joint angles from egocentric RGB images and 128-channel forearm HD-sEMG. An independent learnable query is assigned to each hand DoF, enabling joint-specific and context-adaptive integration of visual and EMG representations.</span><span class="lang-zh">我们结合视觉 Transformer 编码器、基于 Transformer 的肌电编码器与 DoF-query 融合解码器，从第一视角 RGB 图像和 128 通道前臂高密度表面肌电中回归 20 个手部关节角。每个手部自由度对应一个独立的可学习 query，从而实现面向关节、上下文自适应的视觉与肌电特征融合。</span></p>
                   </div>
                 </div>
               </div>
@@ -209,12 +213,12 @@
                 </div>
                 <div class="results-summary">
                   <div class="lang-en">
-                    <p><strong>More accurate, stable reconstruction.</strong> Fusion reached an overall R² of 0.88 and an MAE of 2.79°, outperforming vision only (0.82 / 3.21°) and sEMG only (0.68 / 5.13°), while showing the smallest cross-subject range.</p>
-                    <p><strong>Interpretable, context-adaptive fusion.</strong> Separate DoF queries learned different modality-attention patterns for individual joints and motion phases. Vision preserved spatial hand configuration, while sEMG supplied complementary dynamic cues when occlusion, finger overlap, or motion blur weakened visual evidence. The attention indicates selective internal feature use, rather than explicit detection of modality failure.</p>
+                    <p><strong>More accurate, stable estimation.</strong> Fusion reached an overall R² of 0.88 and an MAE of 2.79°, outperforming vision only (0.82 / 3.21°) and sEMG only (0.68 / 5.13°), while showing the smallest cross-subject range.</p>
+                    <p><strong>Interpretable, context-adaptive fusion.</strong> Separate DoF queries learned different modality-attention patterns for individual joints and motion phases. Vision preserved spatial hand configuration, while sEMG supplied complementary dynamic cues when occlusion, finger overlap, or motion blur weakened visual evidence.</p>
                   </div>
                   <div class="lang-zh">
-                    <p><strong>更准确、更稳定的手部重建。</strong> 融合模型的整体 R² 达到 0.88，MAE 为 2.79°，优于仅视觉模型（0.82 / 3.21°）和仅肌电模型（0.68 / 5.13°），同时具有最小的跨受试者变化范围。</p>
-                    <p><strong>可解释、随情境自适应的融合。</strong> 独立的 DoF 查询针对不同关节与运动阶段学习了不同的模态注意模式。视觉维持手部空间构型；当遮挡、手指重叠或运动模糊削弱视觉证据时，肌电提供互补的动态线索。这里的注意模式表示模型内部对特征的选择性使用，而不是对模态失效的显式检测。</p>
+                    <p><strong>更准确、更稳定的估计。</strong> 融合模型的整体 R² 达到 0.88，MAE 为 2.79°，优于仅视觉模型（0.82 / 3.21°）和仅肌电模型（0.68 / 5.13°），同时具有最小的跨受试者变化范围。</p>
+                    <p><strong>可解释、上下文自适应的融合。</strong> 独立的 DoF query 针对不同关节与运动阶段学习了不同的模态注意模式。视觉保留手部的空间构型；当遮挡、手指重叠或运动模糊削弱视觉证据时，肌电提供互补的动态线索。</p>
                   </div>
                 </div>
                 <figure class="research-reconstruction">
@@ -263,8 +267,8 @@
           </article>
           <article class="project-row reveal">
             <div class="project-content">
-              <h3>Precise Hand–Arm Teleoperation System via Markerless Vision and High-Density sEMG Fusion</h3>
-              <p class="project-affiliation">Dalian University of Technology</p>
+              <h3><span class="lang-en">Precise Hand–Arm Teleoperation System via Markerless Vision and High-Density sEMG Fusion</span><span class="lang-zh">基于无标记视觉与高密度表面肌电融合的精准手-臂遥操作系统</span></h3>
+              <p class="project-affiliation"><span class="lang-en">Dalian University of Technology</span><span class="lang-zh">大连理工大学</span></p>
               <p class="project-period">2024.09 — 2025.07</p>
               <ul>
                 <li><span class="lang-en">Estimated global hand-arm pose from RGB-D and validated markerless tracking against Vicon ground truth.</span><span class="lang-zh">基于 RGB-D 估计全局手臂位姿，并使用 Vicon 真值验证无标记跟踪精度。</span></li>
@@ -275,7 +279,7 @@
           </article>
           <article class="project-row reveal">
             <div class="project-content">
-              <h3>A Distributed High-Density sEMG-driven Soft Glove System for Stroke Rehabilitation</h3>
+              <h3><span class="lang-en">A Distributed High-Density sEMG-driven Soft Glove System for Stroke Rehabilitation</span><span class="lang-zh">面向脑卒中康复的分布式高密度表面肌电驱动软体手套系统</span></h3>
               <p class="project-affiliation"><span class="lang-en">Bachelor graduation thesis · Dalian University of Technology</span><span class="lang-zh">本科毕业设计 · 大连理工大学</span></p>
               <p class="project-period">2023.10 — 2024.07</p>
               <ul>
@@ -297,16 +301,16 @@
             <h2 id="design-title"><span class="lang-en">Design</span><span class="lang-zh">设计作品</span></h2>
           </div>
           <div class="design-overview">
-            <blockquote><span class="lang-en">Aesthetics is an integral part of interaction.</span><span class="lang-zh">美学，决定交互如何被感知。</span></blockquote>
+            <blockquote><span class="lang-en">Aesthetics shapes how interaction is perceived.</span><span class="lang-zh">美学，决定交互如何被感知。</span></blockquote>
             <p class="lang-en">As Design Director at Venture Electronics, I work across product form, enclosure architecture, and visual communication for personal-audio hardware. I also design research hardware at Dalian University of Technology, centered on high-density sEMG acquisition systems.</p>
-            <p class="lang-zh">作为 Venture Electronics 设计总监，我参与个人音频硬件的产品形态、外壳结构与视觉表达。同时，我也在大连理工大学参与高密度表面肌电采集系统相关的科研硬件设计。</p>
+            <p class="lang-zh">作为微翼音频设计总监，我参与个人音频硬件的产品形态、外壳结构与视觉表达。同时，我也在大连理工大学参与高密度表面肌电采集系统相关的科研硬件设计。</p>
           </div>
         </div>
         <section class="design-chapter" aria-labelledby="ve-design-title">
           <header class="design-chapter-header reveal">
             <div>
               <p class="eyebrow"><span class="lang-en">Design Director</span><span class="lang-zh">设计总监</span></p>
-              <h3 id="ve-design-title">Venture Electronics</h3>
+              <h3 id="ve-design-title"><span class="lang-en">Venture Electronics</span><span class="lang-zh">微翼音频</span></h3>
             </div>
             <a class="design-company-link" href="https://www.veclan.com/" target="_blank" rel="noreferrer">
               <span><span class="lang-en">Visit VE</span><span class="lang-zh">访问 VE</span></span>
@@ -408,13 +412,13 @@
     </div>
 
     <div id="life-view" class="view-panel life-view" role="tabpanel" aria-labelledby="life-tab" hidden>
-      <section class="life-intro" aria-labelledby="life-title">
+      <section class="life-intro" id="life-opening" aria-labelledby="life-title">
         <img class="life-photo" src="assets/life-window.jpg" alt="Jesse Liu sitting beside a moving train window">
         <div class="life-photo-shade" aria-hidden="true"></div>
         <div class="life-intro-copy reveal">
-          <p class="eyebrow"><span class="lang-en">Outside the lab</span><span class="lang-zh">实验室之外</span></p>
-          <h2 id="life-title"><span class="lang-en">Life in<br>motion.</span><span class="lang-zh">生活<br>在流动。</span></h2>
-          <p><span class="lang-en">The same curiosity, expressed through sound, movement, conversation, and craft.</span><span class="lang-zh">同一种好奇心，在声音、运动、交流与手作中延续。</span></p>
+          <p class="eyebrow"><span class="lang-en">Beyond the lab</span><span class="lang-zh">实验室之外</span></p>
+          <h2 id="life-title"><span class="lang-en">Life in<br>motion.</span><span class="lang-zh">生命<br>在律动。</span></h2>
+          <p><span class="lang-en">Same curiosity, same focus, same strength.</span><span class="lang-zh">同样的好奇，同样的专注，同样的力量。</span></p>
         </div>
         <a class="life-gallery-cue" href="#life-atlas"><span><span class="lang-en">Explore interests</span><span class="lang-zh">探索兴趣</span></span><i data-lucide="arrow-down" aria-hidden="true"></i></a>
       </section>
@@ -424,8 +428,8 @@
           <svg class="interest-orbit-lines" viewBox="0 0 1000 680" preserveAspectRatio="none" aria-hidden="true">
             <path pathLength="1" d="M500 340 L500 82 M500 340 L710 92 M500 340 L875 205 M500 340 L825 405 M500 340 L740 592 M500 340 L500 620 M500 340 L285 590 M500 340 L120 500 M500 340 L135 275 M500 340 L275 105 M500 340 L350 225 M500 340 L650 260 M500 340 L338 450" />
           </svg>
-          <div class="interest-ball ball-core"><span>Diversity</span></div>
-          <div class="interest-ball ball-jazz">Jazz</div>
+          <div class="interest-ball ball-core"><span class="lang-en">Diversity</span><span class="lang-zh">多样性</span></div>
+          <div class="interest-ball ball-jazz"><span class="lang-en">Jazz</span><span class="lang-zh">爵士</span></div>
           <div class="interest-ball ball-hifi">HiFi</div>
           <div class="interest-ball ball-singing"><span class="lang-en">Singing</span><span class="lang-zh">唱歌</span></div>
           <div class="interest-ball ball-badminton"><span class="lang-en">Badminton</span><span class="lang-zh">羽毛球</span></div>
@@ -439,52 +443,48 @@
           <div class="interest-ball ball-travel"><span class="lang-en">Travel</span><span class="lang-zh">旅行</span></div>
           <div class="interest-ball ball-coffee"><span class="lang-en">Coffee</span><span class="lang-zh">咖啡</span></div>
         </div>
-        <a class="life-gallery-cue" href="#life-gallery"><span><span class="lang-en">Photo wall</span><span class="lang-zh">照片墙</span></span><i data-lucide="arrow-down" aria-hidden="true"></i></a>
+        <a class="life-gallery-cue" href="#photo-booth"><span><span class="lang-en">Photo Booth</span><span class="lang-zh">照片亭</span></span><i data-lucide="arrow-down" aria-hidden="true"></i></a>
       </section>
 
-      <section class="life-gallery" id="life-gallery" aria-labelledby="life-gallery-title">
+      <section class="life-gallery" id="photo-booth" aria-labelledby="life-gallery-title">
         <header class="life-gallery-heading reveal">
           <div>
             <p class="eyebrow"><span class="lang-en">Collected moments</span><span class="lang-zh">片刻收集</span></p>
-            <h2 id="life-gallery-title"><span class="lang-en">Photo wall</span><span class="lang-zh">照片墙</span></h2>
+            <h2 id="life-gallery-title"><span class="lang-en">Photo Booth</span><span class="lang-zh">照片亭</span></h2>
           </div>
         </header>
         <section class="photo-chapter" aria-labelledby="activity-title">
-          <h3 id="activity-title"><span class="lang-en">What I Do</span><span class="lang-zh">我所做的</span></h3>
+          <h3 id="activity-title"><span class="lang-en">What I Do</span><span class="lang-zh">做做看</span></h3>
           <div class="photo-wall">
           <button class="photo-tile photo-hi tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/01-hi.jpg" data-lightbox-caption="Hi" aria-label="View Hi photo"><img src="assets/life/gallery/01-hi.jpg" alt="Jesse Liu raising both arms in the mountains" loading="lazy" decoding="async"><strong>Hi</strong></button>
-          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/02-rafting.jpg" data-lightbox-caption="Rafting" aria-label="View rafting photo"><img src="assets/life/gallery/02-rafting.jpg" alt="White-water rafting with friends" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/05-beach.jpg" data-lightbox-caption="On the coast" aria-label="View beach photo"><img src="assets/life/gallery/05-beach.jpg" alt="Playing on a beach at sunset" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/06-football.jpg" data-lightbox-caption="Football" aria-label="View football photo"><img src="assets/life/gallery/06-football.jpg" alt="Football group after a match" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/02-rafting.jpg" data-lightbox-caption="Tully River Rafting, Cairns" aria-label="View Tully River rafting photo"><img src="assets/life/gallery/02-rafting.jpg" alt="Tully River rafting in Cairns" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/05-beach.jpg" data-lightbox-caption="Beach Soccer, Gold Coast" aria-label="View beach soccer photo"><img src="assets/life/gallery/05-beach.jpg" alt="Beach soccer on the Gold Coast" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/06-football.jpg" data-lightbox-caption="サッカー、御殿下" aria-label="サッカー、御殿下"><img src="assets/life/gallery/06-football.jpg" alt="サッカー、御殿下" loading="lazy" decoding="async"></button>
           <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/08-skiing.jpg" data-lightbox-caption="Skiing" aria-label="View skiing photo"><img src="assets/life/gallery/08-skiing.jpg" alt="Jesse Liu skiing at sunset" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/10-dog.jpg" data-lightbox-caption="A good day" aria-label="View dog photo"><img src="assets/life/gallery/10-dog.jpg" alt="Jesse Liu taking a selfie with a dog" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/11-jazz-bar.jpg" data-lightbox-caption="After hours" aria-label="View jazz bar photo"><img src="assets/life/gallery/11-jazz-bar.jpg" alt="A red-lit bar counter" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/15-portrait.jpg" data-lightbox-caption="Double exposure" aria-label="View portrait"><img src="assets/life/gallery/15-portrait.jpg" alt="Black-and-white double exposure portrait of Jesse Liu" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-square reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/17-kayak.jpg" data-lightbox-caption="Kayaking" aria-label="View kayaking photo"><img src="assets/life/gallery/17-kayak.jpg" alt="Kayaks on a quiet beach" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/19-scuba-diving.jpg" data-lightbox-caption="Scuba diving" aria-label="View scuba diving photo"><img src="assets/life/gallery/19-scuba-diving.jpg" alt="Scuba diving equipment beside a swimming pool" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/20-driving.jpg" data-lightbox-caption="Driving" aria-label="View driving photo"><img src="assets/life/gallery/20-driving.jpg" alt="Jesse Liu beside a car in rolling hills" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/22-football-team.jpg" data-lightbox-caption="Football team" aria-label="View football team photo"><img src="assets/life/gallery/22-football-team.jpg" alt="Football team portrait on a field" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/10-dog.jpg" data-lightbox-caption="Me and My Dog" aria-label="View dog photo"><img src="assets/life/gallery/10-dog.jpg" alt="Me and my dog" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/11-jazz-bar.jpg" data-lightbox-caption="Overdose, Dormitory" aria-label="View dormitory photo"><img src="assets/life/gallery/11-jazz-bar.jpg" alt="Overdose in the dormitory" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/15-portrait.jpg" data-lightbox-caption="I Don't Know" aria-label="View portrait"><img src="assets/life/gallery/15-portrait.jpg" alt="I don't know" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-square reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/17-kayak.jpg" data-lightbox-caption="Beach in Dalian" aria-label="View Dalian beach photo"><img src="assets/life/gallery/17-kayak.jpg" alt="Beach in Dalian" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/19-scuba-diving.jpg" data-lightbox-caption="Scuba Training" aria-label="View scuba training photo"><img src="assets/life/gallery/19-scuba-diving.jpg" alt="Scuba training" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/20-driving.jpg" data-lightbox-caption="Driving, Great Ocean Road" aria-label="View Great Ocean Road photo"><img src="assets/life/gallery/20-driving.jpg" alt="Driving along the Great Ocean Road" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="activity" data-lightbox-src="assets/life/gallery/22-football-team.jpg" data-lightbox-caption="College Soccer Team" aria-label="View college soccer team photo"><img src="assets/life/gallery/22-football-team.jpg" alt="College soccer team" loading="lazy" decoding="async"></button>
           </div>
         </section>
         <section class="photo-chapter" aria-labelledby="landscape-title">
-          <h3 id="landscape-title"><span class="lang-en">What I See</span><span class="lang-zh">我所见的</span></h3>
+          <h3 id="landscape-title"><span class="lang-en">What I See</span><span class="lang-zh">看看看</span></h3>
           <div class="photo-wall">
-          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/03-sydney.jpg" data-lightbox-caption="Sydney" aria-label="View Sydney photo"><img src="assets/life/gallery/03-sydney.jpg" alt="Sydney Opera House and skyline at sunset" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-panorama reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/04-sakura-train.jpg" data-lightbox-caption="Spring in Tokyo" aria-label="View spring train photo"><img src="assets/life/gallery/04-sakura-train.jpg" alt="Train passing beneath cherry blossoms in Tokyo" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/07-seabirds.jpg" data-lightbox-caption="By the sea" aria-label="View seabirds photo"><img src="assets/life/gallery/07-seabirds.jpg" alt="Seabirds circling over a quiet waterfront" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/09-lake.jpg" data-lightbox-caption="Lakeside" aria-label="View lake photo"><img src="assets/life/gallery/09-lake.jpg" alt="Mountain lake beneath moving clouds" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/12-mount-fuji.jpg" data-lightbox-caption="Mount Fuji" aria-label="View Mount Fuji photo"><img src="assets/life/gallery/12-mount-fuji.jpg" alt="Mount Fuji beyond snow and power lines" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/14-hakone-train.jpg" data-lightbox-caption="Hakone" aria-label="View Hakone train photo"><img src="assets/life/gallery/14-hakone-train.jpg" alt="Mountain railway arriving at a forest station" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/16-tokyo-snow.jpg" data-lightbox-caption="Snow in Tokyo" aria-label="View Tokyo snow photo"><img src="assets/life/gallery/16-tokyo-snow.jpg" alt="Snow-covered avenue at the University of Tokyo" loading="lazy" decoding="async"></button>
-          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/21-city-evening.jpg" data-lightbox-caption="City evening" aria-label="View city evening photo"><img src="assets/life/gallery/21-city-evening.jpg" alt="City traffic beneath a dramatic evening sky" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/03-sydney.jpg" data-lightbox-caption="Golden Sydney" aria-label="View Golden Sydney photo"><img src="assets/life/gallery/03-sydney.jpg" alt="Golden Sydney" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-panorama reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/04-sakura-train.jpg" data-lightbox-caption="電車と桜" aria-label="View train and cherry blossoms photo"><img src="assets/life/gallery/04-sakura-train.jpg" alt="電車と桜" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/07-seabirds.jpg" data-lightbox-caption="Loneliness" aria-label="View Loneliness photo"><img src="assets/life/gallery/07-seabirds.jpg" alt="Loneliness" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/09-lake.jpg" data-lightbox-caption="Lugu Lake, Yunnan" aria-label="View Lugu Lake photo"><img src="assets/life/gallery/09-lake.jpg" alt="Lugu Lake, Yunnan" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-wide reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/12-mount-fuji.jpg" data-lightbox-caption="羊蹄山" aria-label="羊蹄山"><img src="assets/life/gallery/12-mount-fuji.jpg" alt="羊蹄山" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/14-hakone-train.jpg" data-lightbox-caption="箱根" aria-label="箱根"><img src="assets/life/gallery/14-hakone-train.jpg" alt="箱根" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/16-tokyo-snow.jpg" data-lightbox-caption="東京大学の雪" aria-label="東京大学の雪"><img src="assets/life/gallery/16-tokyo-snow.jpg" alt="東京大学の雪" loading="lazy" decoding="async"></button>
+          <button class="photo-tile tile-tall reveal" type="button" data-life-kind="landscape" data-lightbox-src="assets/life/gallery/21-city-evening.jpg" data-lightbox-caption="Bridge at Dalian University of Technology" aria-label="View Dalian University of Technology bridge photo"><img src="assets/life/gallery/21-city-evening.jpg" alt="Bridge at Dalian University of Technology" loading="lazy" decoding="async"></button>
           </div>
         </section>
         <button class="photo-tile photo-childhood reveal" type="button" data-lightbox-src="assets/life/gallery/18-childhood.jpg" data-lightbox-caption="Cheers!" aria-label="View childhood photo"><img src="assets/life/gallery/18-childhood.jpg" alt="Jesse Liu as a child beside a Coca-Cola display" loading="lazy" decoding="async"><strong>Cheers!</strong></button>
       </section>
-      <a class="life-back-top" href="#top" aria-label="Back to top">
-        <span class="lang-en">Back to top</span><span class="lang-zh">返回顶部</span>
-        <i data-lucide="arrow-up" aria-hidden="true"></i>
-      </a>
     </div>
 
   </main>

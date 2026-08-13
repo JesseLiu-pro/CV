@@ -45,7 +45,7 @@ function setView(view) {
     }
   });
   document.querySelectorAll('.desktop-nav a').forEach((link) => {
-    link.toggleAttribute('hidden', nextView === 'life');
+    link.toggleAttribute('hidden', link.dataset.navView !== nextView);
   });
   closeMenu();
   history.replaceState(null, '', nextView === 'life' ? '#life' : '#top');
@@ -90,15 +90,18 @@ document.querySelectorAll('[data-life-link]').forEach((link) => {
 function updateHeader() {
   header.classList.toggle('is-scrolled', window.scrollY > 40);
 
-  if (!body.classList.contains('view-work')) return;
+  const isLife = body.classList.contains('view-life');
   const marker = window.scrollY + header.offsetHeight + Math.min(window.innerHeight * 0.28, 220);
   let currentSection = 'top';
-  ['education', 'publications', 'research', 'design', 'skills'].forEach((sectionId) => {
+  const sectionIds = isLife
+    ? ['life-opening', 'life-atlas', 'photo-booth']
+    : ['education', 'publications', 'research', 'design', 'skills'];
+  sectionIds.forEach((sectionId) => {
     const section = document.getElementById(sectionId);
     if (section && section.offsetTop <= marker) currentSection = sectionId;
   });
   sectionLinks.forEach((link) => {
-    const active = link.dataset.sectionLink === currentSection;
+    const active = link.dataset.navView === (isLife ? 'life' : 'work') && link.dataset.sectionLink === currentSection;
     link.classList.toggle('is-active', active);
     if (active) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
@@ -140,7 +143,7 @@ const imageLightbox = document.getElementById('image-lightbox');
 const lightboxImage = imageLightbox?.querySelector('img');
 const lightboxCaption = document.getElementById('lightbox-caption');
 
-document.querySelectorAll('#life-gallery .photo-tile img').forEach((image) => {
+document.querySelectorAll('#photo-booth .photo-tile img').forEach((image) => {
   const match = image.getAttribute('src')?.match(/\/([^/]+)\.jpg$/i);
   if (!match) return;
   const base = `assets/life/previews/${match[1]}`;
