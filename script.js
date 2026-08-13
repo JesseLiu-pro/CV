@@ -140,6 +140,14 @@ const imageLightbox = document.getElementById('image-lightbox');
 const lightboxImage = imageLightbox?.querySelector('img');
 const lightboxCaption = document.getElementById('lightbox-caption');
 
+document.querySelectorAll('#life-gallery .photo-tile img').forEach((image) => {
+  const match = image.getAttribute('src')?.match(/\/([^/]+)\.jpg$/i);
+  if (!match) return;
+  const base = `assets/life/previews/${match[1]}`;
+  image.srcset = `${base}-640.webp 640w, ${base}-1280.webp 1280w`;
+  image.sizes = '(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 40vw';
+});
+
 document.addEventListener('click', (event) => {
   const button = event.target.closest('[data-lightbox-src]');
   if (button) {
@@ -244,6 +252,15 @@ document.querySelectorAll('[data-reconstruction-table]').forEach((table) => {
   let lastDrawTime = 0;
   const frameInterval = 1000 / 15;
 
+  const loadVideoSources = () => {
+    videos.forEach((video) => {
+      const source = video.querySelector('source[data-src]');
+      if (!source || source.src) return;
+      source.src = source.dataset.src;
+      video.load();
+    });
+  };
+
   const draw = (time = 0) => {
     if (!isActive || document.hidden) return;
     if (time - lastDrawTime < frameInterval) {
@@ -277,8 +294,9 @@ document.querySelectorAll('[data-reconstruction-table]').forEach((table) => {
   };
 
   const startRendering = () => {
-    if (isActive || document.hidden) return;
+    if (isActive || document.hidden || body.classList.contains('view-life')) return;
     isActive = true;
+    loadVideoSources();
     videos.forEach((video) => video.play().catch(() => {}));
     cancelAnimationFrame(animationFrame);
     animationFrame = requestAnimationFrame(draw);
