@@ -254,7 +254,15 @@ document.querySelectorAll('[data-reconstruction-table]').forEach((table) => {
     canvases.forEach((canvas, index) => {
       const { video, rect } = crops[index];
       if (video?.readyState >= 2) {
-        const [x, y, width, height] = rect;
+        const sourceWidth = Number(video.dataset.cropWidth) || video.videoWidth;
+        const sourceHeight = Number(video.dataset.cropHeight) || video.videoHeight;
+        const scaleX = video.videoWidth / sourceWidth;
+        const scaleY = video.videoHeight / sourceHeight;
+        const [sourceX, sourceY, sourceCropWidth, sourceCropHeight] = rect;
+        const x = sourceX * scaleX;
+        const y = sourceY * scaleY;
+        const width = sourceCropWidth * scaleX;
+        const height = sourceCropHeight * scaleY;
         const size = Math.max(width, height);
         if (canvas.width !== size || canvas.height !== size) {
           canvas.width = size;
