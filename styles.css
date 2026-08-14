@@ -190,10 +190,22 @@ body.view-life .hero-shade { background: linear-gradient(90deg, rgba(75,53,27,.9
 .project-content h3 { margin: 0; max-width: 900px; font-size: clamp(25px, 2.5vw, 36px); line-height: 1.1; }
 .project-affiliation { margin: 10px 0 0; color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; }
 .project-summary { max-width: 860px; margin: 20px 0 0; color: #4f554f; font-size: 15px; line-height: 1.62; }
+.research-publication-link { width: fit-content; display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; padding-bottom: 5px; border-bottom: 1px solid currentColor; color: var(--forest); font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.research-publication-link svg { width: 14px; height: 14px; }
 .project-content ul { margin: 20px 0 0; padding: 0; list-style: none; max-width: 860px; }
-.project-content li { position: relative; margin: 9px 0; padding-left: 20px; color: #61655f; font-size: 14px; line-height: 1.55; }
+.project-content li { position: relative; margin: 9px 0; padding-left: 20px; color: #61655f; font-size: 15px; line-height: 1.62; }
 .project-content li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 1px; background: var(--moss); }
 .project-content > p:last-child:not(.project-affiliation):not(.project-summary) { max-width: 760px; color: #61655f; font-size: 14px; line-height: 1.6; }
+.rehab-project-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: clamp(30px, 4vw, 64px); align-items: start; margin-top: 10px; }
+.rehab-project-layout .project-summary { margin-top: 20px; }
+.rehab-project-copy { min-width: 0; }
+.rehab-project-media { margin: 0; min-height: 0; align-self: start; overflow: hidden; background: transparent; }
+.rehab-project-media img, .rehab-project-media video { width: 100%; height: 100%; display: block; object-fit: contain; }
+.teleoperation-project-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr); gap: clamp(30px, 4vw, 64px); align-items: start; margin-top: 0; }
+.teleoperation-project-layout .project-summary { margin-top: 20px; }
+.teleoperation-project-copy { min-width: 0; }
+.teleoperation-project-media { margin: 0; width: min(100%, 235px); height: min(100%, 417px); min-height: 0; align-self: start; justify-self: end; overflow: hidden; background: transparent; }
+.teleoperation-project-media video { width: 100%; height: 100%; display: block; object-fit: contain; }
 .research-feature { display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr); grid-template-rows: auto auto; gap: 14px clamp(30px, 4vw, 64px); align-items: start; margin-top: 34px; }
 .research-feature-visuals, .research-feature-copy { min-width: 0; display: grid; grid-row: 1 / 3; grid-template-rows: subgrid; row-gap: 14px; }
 .research-feature-visuals { grid-column: 1; }
@@ -219,21 +231,22 @@ body.view-life .hero-shade { background: linear-gradient(90deg, rgba(75,53,27,.9
 @keyframes source-arrow-down { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(4px); } 68% { transform: translateY(1px); } }
 .research-feature-copy > div { padding-top: 14px; border-top: 1px solid var(--line); }
 .research-copy-label { margin: 0 0 10px; color: var(--moss); font-size: 10px; font-weight: 800; text-transform: uppercase; }
-.research-feature-copy > div > p:last-child { margin: 0; color: #4f554f; font-size: 13px; line-height: 1.68; }
+.research-feature-copy > div > p:last-child { margin: 0; color: #4f554f; font-size: 15px; line-height: 1.62; }
 .research-results { display: grid; grid-template-columns: minmax(250px, 1fr) minmax(0, 2fr); grid-template-areas: "chart video" "summary summary"; gap: 30px clamp(28px, 4vw, 58px); align-items: stretch; margin-top: 38px; padding-top: 16px; border-top: 1px solid var(--line); }
 .results-chart { grid-area: chart; min-height: 100%; display: grid; grid-template-rows: auto repeat(2, minmax(0, 1fr)); }
 .results-summary { grid-area: summary; padding-top: 0; }
 .results-summary > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(28px, 4vw, 58px); }
-.results-summary p { margin: 0; color: #4f554f; font-size: 13px; line-height: 1.68; }
+.results-summary p { margin: 0; color: #4f554f; font-size: 15px; line-height: 1.62; }
 .results-summary p + p { margin-top: 13px; }
 .results-summary > div > p + p { margin-top: 0; }
 .results-summary strong { color: var(--ink); }
+.project-summary, .project-content li, .research-feature-copy > div > p:last-child, .results-summary p { text-align: justify; text-justify: inter-word; }
 .metric-chart { min-height: 0; margin-top: 14px; display: grid; grid-template-rows: auto minmax(150px, 1fr); }
 .metric-chart + .metric-chart { margin-top: 18px; }
 .metric-chart-title { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
 .metric-chart-title > span { font-size: 18px; font-weight: 800; }
 .metric-chart-title > span small { color: var(--muted); font-size: 9px; font-weight: 750; }
-.metric-bars { height: auto; min-height: 150px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: end; gap: 10px; padding-top: 20px; border-bottom: 1px solid var(--ink); }
+.metric-bars { height: auto; min-height: 150px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: end; gap: 10px; padding: 12px 0 18px; border-bottom: 1px solid var(--ink); }
 .metric-bar { height: 100%; display: grid; grid-template-rows: 18px 1fr 20px; align-items: end; text-align: center; }
 .metric-bar > span { color: var(--muted); font-size: 9px; font-weight: 800; transform: translateY(-3px); }
 .metric-plot { position: relative; width: 100%; height: 100%; align-self: stretch; }
@@ -418,6 +431,10 @@ footer svg { width: 14px; height: 14px; }
   .publication-row { grid-template-columns: 1fr 20px; gap: 12px; padding: 28px 0 32px; }
   .publication-copy h3 { font-size: 24px; }
   .project-row { grid-template-columns: minmax(0, 1fr); padding: 36px 0 42px; }
+  .rehab-project-layout { grid-template-columns: 1fr; gap: 22px; align-items: start; }
+  .rehab-project-media { aspect-ratio: 4 / 3; }
+  .teleoperation-project-layout { grid-template-columns: 1fr; gap: 22px; align-items: start; }
+  .teleoperation-project-media { width: min(100%, 320px); height: auto; aspect-ratio: 320 / 568; justify-self: center; }
   .project-content h3 { font-size: 27px; }
   .project-byline { align-items: flex-start; }
   .research-feature { grid-template-columns: 1fr; grid-template-rows: none; gap: 28px; }
@@ -471,6 +488,8 @@ footer svg { width: 14px; height: 14px; }
   .hero-portrait { top: 64px; }
   .hero::after { top: 74px; }
   .design-gallery { grid-template-columns: 1fr; }
+  .design-media-low-poly img { transform: translateY(-7%) scale(1.14); }
+  .design-media-square img { transform: scale(1.14); }
   .research-reconstruction { overflow-x: visible; padding-bottom: 0; }
   .reconstruction-table { min-width: 0; column-gap: 5px; }
   .reconstruction-head { min-height: 34px; padding-inline: 1px; font-size: 7px; }
